@@ -1,0 +1,103 @@
+body {
+	margin: 0 auto;
+	font-family: trebuchet,arial,tahoma,verdana,sans-serif;
+}
+
+a {
+	outline: 0;
+}
+
+.header {
+	width: 100%;
+	height: 40px;
+	background: -webkit-linear-gradient(to bottom, #FFF, #CCC);
+	background: -moz-linear-gradient(to bottom, #FFF, #CCC);
+	background: -o-linear-gradient(to bottom, #FFF, #CCC);
+	background: -ms-linear-gradient(to bottom, #FFF, #CCC);
+	background: linear-gradient(to bottom, #FFF, #CCC);
+	-webkit-box-shadow: 0 0 5px #000;
+	box-shadow: 0 0 5px #000;
+}
+
+/* Mise en forme du menu */
+.menu {
+	width: 454px;
+	height: 40px;
+	margin: 0 auto;
+}
+
+.menu dl {
+	display: block;
+	float: left;
+	margin: 0;
+	padding: 0;
+}
+
+.menu dl dt {
+
+}
+
+.menu dl dt a {
+	text-decoration: none;
+	text-align: center;
+	color: black;
+	font-weight: bold;
+	display: inline-block;
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+}
+
+.menu dl dt a:hover {
+	background: linear-gradient(to bottom, #CCC, #FFF);
+}
+
+.separateur {
+	display: inline-block;
+	float: left;
+	width: 1px;
+	height: 40px;
+	background: rgba(0,0,0,0.5);
+}
+
+
+/* Mise en forme du contenu */
+.content {
+	width: 960px;
+	margin: auto;
+	padding: 15px 0 0 0;
+}
+
+/* Mise en forme du formulaire de connexion */
+.tableauConnexion {
+	width: 400px;
+	height: 200px;
+	display: block;
+	margin: 0 auto;
+}
+
+.tableauConnexion tr {
+	height: 50px;
+}
+
+.tableauConnexion th {
+	text-align: left;
+	padding: 20px;
+}
+
+.tableauConnexion input[type="text"] {
+	height: 25px;
+	width: 150px;
+}
+
+
+/* Mise en forme du pied de page */
+.footer {
+	width: 100%;
+	height: 40px;
+	background: linear-gradient(to bottom, #CCC, #FFF);
+	box-shadow: 0 0 5px #000;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
