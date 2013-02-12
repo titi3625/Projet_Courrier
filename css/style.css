@@ -8,6 +8,7 @@ a {
 }
 
 .header {
+	display: inline-block;
 	width: 100%;
 	height: 40px;
 	background: -webkit-linear-gradient(to bottom, #FFF, #CCC);
@@ -17,6 +18,19 @@ a {
 	background: linear-gradient(to bottom, #FFF, #CCC);
 	-webkit-box-shadow: 0 0 5px #000;
 	box-shadow: 0 0 5px #000;
+}
+
+.user {
+	//display: inline-block;
+	width: 10%;
+	position: absolute;
+	right: 0px;
+	top: 5px;
+	font-size: 12px;
+}
+
+.user p {
+	margin: 0;
 }
 
 /* Mise en forme du menu */
@@ -49,6 +63,10 @@ a {
 }
 
 .menu dl dt a:hover {
+	background: -webkit-linear-gradient(to bottom, #CCC, #FFF);
+	background: -moz-linear-gradient(to bottom, #CCC, #FFF);
+	background: -o-linear-gradient(to bottom, #CCC, #FFF);
+	background: -ms-linear-gradient(to bottom, #CCC, #FFF);
 	background: linear-gradient(to bottom, #CCC, #FFF);
 }
 
@@ -81,15 +99,22 @@ a {
 }
 
 .tableauConnexion th {
-	text-align: left;
+	//text-align: center;
 	padding: 20px;
 }
 
-.tableauConnexion input[type="text"] {
+.tableauConnexion input[type="text"], .tableauConnexion input[type="password"] {
 	height: 25px;
 	width: 150px;
+	padding-left: 5px;
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.4) inset;
+	border: 0;
+	border-radius: 3px;
 }
 
+.tableauConnexion input[type="text"]:focus, .tableauConnexion input[type="password"]:focus {
+	box-shadow: 0px 0px 6px rgba(0,0,0,0.2);
+}
 
 /* Mise en forme du pied de page */
 .footer {

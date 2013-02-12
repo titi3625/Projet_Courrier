@@ -12,4 +12,5 @@
 		<dt><a href="inserer.php">Inserer</a></dt>
 	</dl>
 	<div class="separateur"></div>
+	
 </div>
