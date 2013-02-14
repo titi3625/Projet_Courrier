@@ -34,11 +34,11 @@ session_start();
 				<table class="tableauConnexion">
 					<tr>
 						<th><label for="login">Nom d'utilisateur : </label></th>
-						<th><input type="text" name="login" autofocus required pattern=""></th>
+						<th><input type="text" name="login" autofocus required></th>
 					</tr>
 					<tr>
 						<th><label for="mdp" align="right">Mot de passe : </label></th>
-						<th><input type="password" name="mdp" required pattern=""></th>
+						<th><input type="password" name="mdp" required></th>
 					</tr>
 					<tr >
 						<th colspan="2" align="center"><input type="submit" id="connexion" value="connexion"></th>
@@ -58,12 +58,12 @@ session_start();
 					include_once('include/bdd.php');
 					$req = $bdd->query("SELECT * FROM utilisateur WHERE login_utilisateur = '$login' AND mdp_utilisateur = '$mdp'");
 					if($verif = $req->fetch()) {
-						$_SESSION['droit'] = $verif['droit_utilisateur'];
-						$_SESSION['nom'] = $verif['nom_utilisateur'];
+						$_SESSION['droit']  = $verif['droit_utilisateur'];
+						$_SESSION['nom']    = $verif['nom_utilisateur'];
 						$_SESSION['prenom'] = $verif['prenom_utilisateur'];
-						$_SESSION['login'] = $verif['login_utilisateur'];
-						$_SESSION['mdp'] = $verif['mdp_utilisateur'];
-						$_SESSION['auth'] = "yes";
+						$_SESSION['login']  = $verif['login_utilisateur'];
+						$_SESSION['mdp']    = $verif['mdp_utilisateur'];
+						$_SESSION['auth']   = "yes";
 						header("Location:index.php");
 					}
 					else {
@@ -83,5 +83,6 @@ session_start();
 	<div class="footer">
 		
 	</div>
+	<script src="js/main.js"></script>
 </body>
 </html>

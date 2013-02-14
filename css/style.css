@@ -1,6 +1,8 @@
 body {
 	margin: 0 auto;
 	font-family: trebuchet,arial,tahoma,verdana,sans-serif;
+	font-size: 11px;
+	background: #FFFFFF;
 }
 
 a {
@@ -11,13 +13,10 @@ a {
 	display: inline-block;
 	width: 100%;
 	height: 40px;
-	background: -webkit-linear-gradient(to bottom, #FFF, #CCC);
-	background: -moz-linear-gradient(to bottom, #FFF, #CCC);
-	background: -o-linear-gradient(to bottom, #FFF, #CCC);
-	background: -ms-linear-gradient(to bottom, #FFF, #CCC);
-	background: linear-gradient(to bottom, #FFF, #CCC);
+	color: #EEEEEE;
+	background: rgba(110,109,113,1);
 	-webkit-box-shadow: 0 0 5px #000;
-	box-shadow: 0 0 5px #000;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
 }
 
 .user {
@@ -26,7 +25,7 @@ a {
 	position: absolute;
 	right: 0px;
 	top: 5px;
-	font-size: 12px;
+	font-size: 11px;
 }
 
 .user p {
@@ -35,7 +34,7 @@ a {
 
 /* Mise en forme du menu */
 .menu {
-	width: 454px;
+	width: 460px;
 	height: 40px;
 	margin: 0 auto;
 }
@@ -54,20 +53,31 @@ a {
 .menu dl dt a {
 	text-decoration: none;
 	text-align: center;
-	color: black;
 	font-weight: bold;
 	display: inline-block;
+	border-radius: 10px;
 	width: 150px;
 	height: 40px;
 	line-height: 40px;
+	-webkit-transition: all 0.1s linear 0s;
+	-moz-transition: all 0.1s linear 0s;
+	-o-transition: all 0.1s linear 0s;
+	-ms-transition: all 0.1s linear 0s;
+	transition: all 0.1s linear 0s;
+	font-size: 12px;
+	border-left: 1px solid #565659;
+	border-right: 1px solid #565659;
+	color: #EEEEEE;
 }
 
 .menu dl dt a:hover {
-	background: -webkit-linear-gradient(to bottom, #CCC, #FFF);
-	background: -moz-linear-gradient(to bottom, #CCC, #FFF);
-	background: -o-linear-gradient(to bottom, #CCC, #FFF);
-	background: -ms-linear-gradient(to bottom, #CCC, #FFF);
-	background: linear-gradient(to bottom, #CCC, #FFF);
+	background: rgba(110,109,113,0.5);
+	box-shadow: 2px 0 16px rgba(0, 0, 0, 0.6) inset;
+}
+
+.current {
+	background: rgba(110,109,113,0.5);
+	box-shadow: 2px 0 16px rgba(0, 0, 0, 0.6) inset;
 }
 
 .separateur {
@@ -75,7 +85,7 @@ a {
 	float: left;
 	width: 1px;
 	height: 40px;
-	background: rgba(0,0,0,0.5);
+	background: rgba(110,109,113,1);
 }
 
 
@@ -99,7 +109,6 @@ a {
 }
 
 .tableauConnexion th {
-	//text-align: center;
 	padding: 20px;
 }
 
@@ -108,12 +117,24 @@ a {
 	width: 150px;
 	padding-left: 5px;
 	box-shadow: 0px 0px 3px rgba(0,0,0,0.4) inset;
-	border: 0;
+	border: 1px solid white;
 	border-radius: 3px;
 }
 
 .tableauConnexion input[type="text"]:focus, .tableauConnexion input[type="password"]:focus {
-	box-shadow: 0px 0px 6px rgba(0,0,0,0.2);
+	box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
+	border: 1px solid white;
+
+}
+
+/* Mise en forme du formulaire de recherche */
+.formRecherche {
+
+}
+
+.formRecherche table {
+	height: 500px;
+
 }
 
 /* Mise en forme du pied de page */
