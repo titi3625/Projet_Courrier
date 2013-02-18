@@ -10,6 +10,9 @@ a {
 }
 
 .header {
+	position: fixed;
+	top: 0;
+	left: 0;
 	display: inline-block;
 	width: 100%;
 	height: 40px;
@@ -17,6 +20,7 @@ a {
 	background: rgba(110,109,113,1);
 	-webkit-box-shadow: 0 0 5px #000;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+	z-index: 3;
 }
 
 .user {
@@ -93,7 +97,7 @@ a {
 .content {
 	width: 960px;
 	margin: auto;
-	padding: 15px 0 0 0;
+	padding: 55px 0 0 0;
 }
 
 /* Mise en forme du formulaire de connexion */
@@ -108,7 +112,7 @@ a {
 	height: 50px;
 }
 
-.tableauConnexion th {
+.tableauConnexion td {
 	padding: 20px;
 }
 
@@ -122,19 +126,42 @@ a {
 }
 
 .tableauConnexion input[type="text"]:focus, .tableauConnexion input[type="password"]:focus {
-	box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
-	border: 1px solid white;
+	//box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
 
 }
 
-/* Mise en forme du formulaire de recherche */
-.formRecherche {
+/* Mise en forme du "formulaire" de recherche */
+
+.divRecherche fieldset table {
+	height: 300px;
 
 }
 
-.formRecherche table {
-	height: 500px;
+.divRecherche input[type="text"] {
+	width: 130px;
+}
 
+.divRecherche fieldset {
+	border-radius: 10px;
+	border: 2px solid #EEEEEE;
+	margin-bottom: 20px;
+}
+
+/*Mise en forme du resultat de recherche*/
+
+.resultat table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.resultat table td, .resultat table th {
+	border: 1px solid #EEEEEE;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+.resultat table tr {
+	height: 30px;
 }
 
 /* Mise en forme du pied de page */
@@ -143,7 +170,9 @@ a {
 	height: 40px;
 	background: linear-gradient(to bottom, #CCC, #FFF);
 	box-shadow: 0 0 5px #000;
-	position: absolute;
+	position: fixed;
 	bottom: 0;
 	right: 0;
+	text-align: center;
+	z-index: 3;
 }

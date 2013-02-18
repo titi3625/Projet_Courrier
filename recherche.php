@@ -1,16 +1,17 @@
 <?php
 session_start();
+if($_SESSION['auth'] != 'yes') {
+	header('Location:index.php');
+}
 ?>
 <!doctype html>
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-	<title>Recherche</title>
+	<title>Recherche courrier</title>
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/Aristo/Aristo.css">
-	<script>
 
-	</script>
 </head>
 <body>
 	<div class="header">
@@ -18,61 +19,65 @@ session_start();
 		include_once('include/menu.php');
 		?>
 		<div class="user">
-			<?php
-			if(isset($_SESSION['auth']) && $_SESSION['auth'] == 'yes') {
-				echo "<p>".$_SESSION['prenom'] . " " . $_SESSION['nom']."</p>";
-				echo "<a href=\"include/deconnexion.php\">Se déconnecter</a>";
-			}
-			else {
-				echo "Vous n'êtes pas connecté(e)";
-			}
-			?>
+			<p><?php echo $_SESSION['prenom'].' '.$_SESSION['nom']; ?></p>
+			<a href="include/deconnexion.php">Se déconnecter</a>
 		</div>
 	</div>
 	
 	<div class="content">
-		<div align="center">
-			<form action="recherche.php" method="post" class="formRecherche">
+		<div class="divRecherche" align="center">
+			<fieldset>
+				<legend>Recherche</legend>
 				<table>
 					<tr>
-						<th colspan="2" align="">
+						<th colspan="2">
 							<div id="checkboxCourrier">
 								<input type="checkbox" name="entrant" id="check1"> <label for="check1">Courrier entrant</label>
 								<input type="checkbox" name="sortant" id="check2"> <label for="check2">Courrier sortant</label>
 							</div>
-							
 						</th>
 					</tr>
 					<tr>
-						<th align="left"><label for="rechercheObjet">Recherche par objet : </label></th>
-						<th align="left"><input type="text" name="rechercheObjet" id="rechercheObjet"/></th>
+							<td align="left"><label for="rechercheObjet">Recherche par objet : </label></td>
+							<td align="left"><input type="text" name="rechercheObjet" id="rechercheObjet"/></td>
 					</tr>
 					<tr>
-						<th align="left"><label for="rechercheDestinataire">Recherche par destinataire : </label></th>
-						<th align="left"><input type="text" name="rechercheDestinataire" id="rechercheDestinataire"/></th>
+							<td align="left"><label for="rechercheDestinataire">Recherche par destinataire : </label></td>
+							<td align="left"><input type="text" name="rechercheDestinataire" id="rechercheDestinataire"/></td>
 					</tr>
 					<tr>
-						<th align="left"><label for="rechercheService">Recherche par service : </label></th>
-						<th align="left"><input type="text" name="rechercheService" id="rechercheService"/></th>
+							<td align="left"><label for="rechercheService">Recherche par service : </label></td>
+							<td align="left"><input type="text" name="rechercheService" id="rechercheService"/></td>	
 					</tr>
 					<tr>
-						<th><label for="rechercheDate">Recherche par date du : <input type="text" name="rechercheDate" id="rechercheDate" class="datepicker"/></label></th>
-						<th> <label for="rechercheDate2"> au : </label> <input type="text" name="rechercheDate2" id="rechercheDate2" class="datepicker"/></th>
+							<td><label for="rechercheDate">Recherche par date du : </label></td>
+							<td><input type="text" name="rechercheDate" id="rechercheDate" class="datepicker"/><label for="rechercheDate2"> au : </label> <input type="text" name="rechercheDate2" id="rechercheDate2" class="datepicker"/></td>
 					</tr>
-					<tr>
-						<th colspan="2"><input type="submit" name="rechercher" id="rechercher" value="Rechercher"/></th>
+					<tr align="center">
+						<td colspan="2">
+							<input type="button" name="rechercher" id="rechercher" value="Rechercher"/>
+							<input type="button" name="reset" id="reset" value="Effacer">
+						</td>
 					</tr>
+					</div>
+					
 				</table>
-			</form>
+			</fieldset>
+
+			<div class="resultat">
+
+			</div>
+			
 		</div>
 	</div>
 	
 	<div class="footer">
 		
 	</div>
+
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+	<script src="js/interface.js"></script>
 	<script src="js/main.js"></script>
-	<!-- <script src="js/date.js"></script> -->
 </body>
 </html>

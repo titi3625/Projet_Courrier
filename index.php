@@ -5,8 +5,9 @@ session_start();
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-	<title>Accueil</title>
+	<title>Accueil connexion</title>
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/Aristo/Aristo.css">
 </head>
 <body>
 	<div class="header">
@@ -33,15 +34,15 @@ session_start();
 			<form action="index.php" method="post">
 				<table class="tableauConnexion">
 					<tr>
-						<th><label for="login">Nom d'utilisateur : </label></th>
-						<th><input type="text" name="login" autofocus required></th>
+						<td><label for="login">Nom d'utilisateur : </label></td>
+						<td><input type="text" name="login" autofocus required></td>
 					</tr>
 					<tr>
-						<th><label for="mdp" align="right">Mot de passe : </label></th>
-						<th><input type="password" name="mdp" required></th>
+						<td><label for="mdp" align="right">Mot de passe : </label></td>
+						<td><input type="password" name="mdp" required></td>
 					</tr>
 					<tr >
-						<th colspan="2" align="center"><input type="submit" id="connexion" value="connexion"></th>
+						<td colspan="2" align="center"><input type="submit" id="connexion" value="Connexion"></td>
 					</tr>
 				</table>
 			</form>
@@ -81,8 +82,12 @@ session_start();
 	</div>
 	
 	<div class="footer">
-		
+		Copyright tiboCorP et plopWorld
 	</div>
+
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
+	<script src="js/interface.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>
