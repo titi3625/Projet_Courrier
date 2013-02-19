@@ -23,7 +23,7 @@ if($_SESSION['auth'] != 'yes') {
 			<a href="include/deconnexion.php">Se déconnecter</a>
 		</div>
 	</div>
-	
+		
 	<div class="content">
 		<div class="divRecherche" align="center">
 			<fieldset>
@@ -31,9 +31,10 @@ if($_SESSION['auth'] != 'yes') {
 				<table>
 					<tr>
 						<th colspan="2">
-							<div id="checkboxCourrier">
-								<input type="checkbox" name="entrant" id="check1"> <label for="check1">Courrier entrant</label>
-								<input type="checkbox" name="sortant" id="check2"> <label for="check2">Courrier sortant</label>
+							<div id="radio">
+								<input type="radio" name="statut" id="lesdeux" checked> <label for="lesdeux">Les deux</label>
+								<input type="radio" name="statut" id="entrant"> <label for="entrant">Courrier entrant</label>
+								<input type="radio" name="statut" id="sortant"> <label for="sortant">Courrier sortant</label>
 							</div>
 						</th>
 					</tr>

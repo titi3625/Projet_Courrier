@@ -96,8 +96,12 @@ a {
 /* Mise en forme du contenu */
 .content {
 	width: 960px;
-	margin: auto;
+	margin: 0 auto ;
 	padding: 55px 0 0 0;
+}
+
+#radio label {
+	width: 136px;
 }
 
 /* Mise en forme du formulaire de connexion */
@@ -125,11 +129,6 @@ a {
 	border-radius: 3px;
 }
 
-.tableauConnexion input[type="text"]:focus, .tableauConnexion input[type="password"]:focus {
-	//box-shadow: 0px 0px 6px rgba(0,0,0,0.3);
-
-}
-
 /* Mise en forme du "formulaire" de recherche */
 
 .divRecherche fieldset table {
@@ -141,7 +140,7 @@ a {
 	width: 130px;
 }
 
-.divRecherche fieldset {
+.content fieldset {
 	border-radius: 10px;
 	border: 2px solid #EEEEEE;
 	margin-bottom: 20px;
@@ -162,6 +161,32 @@ a {
 
 .resultat table tr {
 	height: 30px;
+}
+
+/*Mise en forme du formulaire d'insertion*/
+.inserer input[type="text"] {
+	height: 25px;
+	width: 198px;
+	padding-left: 5px;
+	box-shadow: 0px 0px 3px rgba(0,0,0,0.4) inset;
+	border: 1px solid white;
+	border-radius: 3px;
+}
+
+.inserer input[type="file"] {
+	width: 198px;
+}
+
+.inserer table tr {
+	height: 50px;
+}
+
+.inserer select {
+	width: 200px;
+}
+
+.inserer table td {
+	text-align: center;
 }
 
 /* Mise en forme du pied de page */

@@ -12,17 +12,16 @@ $(function() {
 		sens = null;
 
 		// on recupere la valeur des case à cocher pour remplir la variable
-		if($('#check1').is(':checked') == true && $('#check2').is(':checked') == false) {
+		if($('#entrant').is(':checked') == true) {
 			sens = "Entrant";
 		}
-		else if($('#check1').is(':checked') == false && $('#check2').is(':checked') == true) {
+		else if($('#sortant').is(':checked') == true) {
 			sens = "Sortant";
 		}
-		else if($('#check2').is(':checked') == true && $('#check1').is(':checked') == true) {
+		else if($('#lesdeux').is(':checked') == true) {
 			sens = "";
 		}
 		else {
-			alert('Vous devez choisir un type de courrier (entrant ou sortant)');
 			return false;
 		}
 		
@@ -33,7 +32,14 @@ $(function() {
 		}
 		else {
 			// on envoie les variables au fichier php qui contient la requete
-			$.post('recherche.method.php', {objet:""+objet+"", destinataire:""+destinataire+"", service:""+service+"", date_debut:""+d1+"", date_fin:""+d2+"", sens:""+sens+""}, function(data) {
+			$.post('recherche.method.php', {
+				objet:""+objet+"",
+				destinataire:""+destinataire+"",
+				service:""+service+"",
+				date_debut:""+d1+"",
+				date_fin:""+d2+"",
+				sens:""+sens+""
+			},function(data) {
 				$('.resultat').html(data).show();
 			});
 			//$('.resultat').load('recherche.method.php', { objet:objet, destinataire:destinataire, service:service, date_debut:d1, date_fin:d2, sens:sens});

@@ -20,7 +20,6 @@
 	// construction de la requete SQL
 	$sql = 'SELECT id_courrier, objet_courrier, date_courrier, sens_courrier, nom_observation, id_accuse_accuse_de_reception, nom_type_courrier, nom_destinataire, nom_service FROM courrier NATURAL JOIN posseder NATURAL JOIN attribuer NATURAL JOIN service NATURAL JOIN destinataire NATURAL JOIN observation NATURAL JOIN type_courrier ';
 	if($sens != null) {
-
 		$sql .= 'WHERE sens_courrier = "'.strip_tags($sens).'"';
 		$where = 1;
 	}

@@ -26,6 +26,8 @@ session_start();
 			?>
 		</div>
 	</div>
+		
+
 	
 	<div class="content">
 		<?php
@@ -78,7 +80,6 @@ session_start();
 			echo '<p align="center">Vous êtes connecté(e)</p>';
 		}
 		?>
-		
 	</div>
 	
 	<div class="footer">
