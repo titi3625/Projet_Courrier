@@ -24,3 +24,6 @@ function login($username, $password) {
 		}
 	}
 }
+$objet = "salut";
+$requeteCourrier = "INSERT INTO courrier VALUES('', '".$objet."', '".$date."', '".$sens."', '".$observation."', '".$accuse."', '".$type."');";
+echo $requeteCourrier;

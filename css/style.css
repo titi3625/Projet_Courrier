@@ -165,7 +165,7 @@ a {
 
 /*Mise en forme du formulaire d'insertion*/
 .inserer table {
-	width: 400px;
+	width: auto;
 }
 
 .inserer input[type="text"] {
@@ -199,6 +199,11 @@ a {
 	width: 16px;
 	height: 16px;
 
+}
+
+/*Mise en forme du champs de selection de fichier*/
+.file {
+	visibility: hidden;
 }
 
 /* Mise en forme du pied de page */

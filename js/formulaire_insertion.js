@@ -6,6 +6,7 @@ $(function() {
 	var date;
 	var service;
 	var destinataire;
+	var sens;
 
 
 	// modification du formulaire selon le sens du courrier
@@ -33,7 +34,7 @@ $(function() {
 	});
 
 	// fonction qui ajoute un destinataire sortant quand on clique sur le +
-	$('#imgSortant').on('click', function() {
+	$('#imgAjouter').on('click', function() {
 		$('#sortant2').insertAfter("<tr><td>"+$('#sortant2 td input#destinataire').clone()+"</td></tr>");
 	});
 
@@ -43,11 +44,13 @@ $(function() {
 		date = $('#insertDate').val();
 		objet = $('#objet').val();
 		service = $('#service').val();
-		observation = $('observation').val();
-		type = $('type').val();
+		observation = $('#observation').val();
+		type = $('#type').val();
+		//destinataire = $('#destinataire').val();
 
-		if($('#divAR').html() != "") {
-			if($('select#AR').val() == "!AR") {
+		// selon le type de courrier on peut ou non dire s'il possède un AR
+		if($('#divAR').text() != "") {
+			if($('#AR').val() == "!AR") {
 				accuse = 0;
 			}
 			else {
@@ -55,20 +58,32 @@ $(function() {
 			}
 		}
 
-		// selon le type de courrier on peut ou non dire s'il possède un AR
+		// si le radio courrier entrant est coché
 		if($('#radioEntrant').is(':checked')) {
+			// on definit la variable sens a "entrant"
 			sens = "Entrant";
+			destinataire = $('#destinataireEntrant').val();
 		}
+		// si le radio courrier sortant est coché
 		if($('#radioSortant').is(':checked')) {
+			// on definit la variable sens a "sortant"
 			sens = "Sortant";
+
+			// si le champs destinataire classique est coché
 			if ($('#radioDestinataire1').is(':checked')) {
-				destinataire = $('#destinataire').val();
+				destinataire = $('#destinataireSortant').val();
 			}
+			// sinon si le champs insertion d'une liste de destinataire est coché
 			else if ($('#radioDestinataire2').is(':checked')) {
 				destinataire = [];
 			}
+			else {
+				destinataire = $('#destinataireSortant').val();
+			}
 
 		}
+
+		alert(date+" "+destinataire+" "+objet+" "+service+" "+observation+" "+type+" "+sens+" "+accuse);
 
 		// envoi des données à la bdd
 		$.post('ajouter_utilisateur.php', {
@@ -79,11 +94,10 @@ $(function() {
 			observation:""+observation+"",
 			accuse:""+accuse+"",
 			sens:""+sens+"",
-			type:""+type+"",
-
-		}, function() {
-			print("Insertion réussi");
-		})
+			type:""+type+""
+		}, function(data) {
+			alert(data);
+		});
 	});
 
 

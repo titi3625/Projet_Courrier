@@ -39,7 +39,7 @@ $(function() {
 				date_debut:""+d1+"",
 				date_fin:""+d2+"",
 				sens:""+sens+""
-			},function(data) {
+			}, function(data) {
 				$('.resultat').html(data).show();
 			});
 			//$('.resultat').load('recherche.method.php', { objet:objet, destinataire:destinataire, service:service, date_debut:d1, date_fin:d2, sens:sens});
