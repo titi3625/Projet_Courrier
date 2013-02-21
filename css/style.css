@@ -164,6 +164,10 @@ a {
 }
 
 /*Mise en forme du formulaire d'insertion*/
+.inserer table {
+	width: 400px;
+}
+
 .inserer input[type="text"] {
 	height: 25px;
 	width: 198px;
@@ -177,6 +181,8 @@ a {
 	width: 198px;
 }
 
+
+
 .inserer table tr {
 	height: 50px;
 }
@@ -187,6 +193,12 @@ a {
 
 .inserer table td {
 	text-align: center;
+}
+
+#imgAjouter {
+	width: 16px;
+	height: 16px;
+
 }
 
 /* Mise en forme du pied de page */

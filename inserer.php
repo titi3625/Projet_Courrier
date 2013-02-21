@@ -34,7 +34,7 @@ if($_SESSION['auth'] != 'yes') {
 		<div class="inserer" align="center">
 			<fieldset>
 				<legend>Ajouter un courrier</legend>
-				<form action="">
+				<form action="#">
 					<table>
 						<tr>
 							<td colspan="2" id="radio">
@@ -57,7 +57,7 @@ if($_SESSION['auth'] != 'yes') {
 								<?php
 								$reponse = $bdd->query('SELECT * FROM service');
 								?>
-								<select name="service" name="service" id="service" required>
+								<select name="service" id="service" required>
 									<?php
 									while($ligne = $reponse->fetch())
 									{
@@ -77,7 +77,7 @@ if($_SESSION['auth'] != 'yes') {
 								<?php
 								$reponse = $bdd->query('SELECT * FROM service');
 								?>
-								<select name="service" name="service" id="service" required>
+								<select name="service" id="service" required>
 									<?php
 									while($ligne = $reponse->fetch())
 									{
@@ -88,11 +88,18 @@ if($_SESSION['auth'] != 'yes') {
 							</td>
 						</tr>
 						<tr id="sortant2">
-							<td><input type="radio" name="radioDestinataire"><label for="destinataire">Destinataire : </label></td>
-							<td><input type="text" name="destinataire" id="destinataire" ></td>
+							<td>
+								<!-- <input type="radio" name="radioDestinataire" id="radioDestinataire1"> -->
+								<label for="destinataire">Destinataire : </label>	
+							</td>
+							<td>
+								<input type="text" name="destinataire" id="destinataire" >
+								<a href="#"><img src="image/ajouter.png" alt="Ajouter un destinataire" id="imgAjouter"></a>
+							</td>
 						</tr>
+						
 						<tr id="sortant3">
-							<td><input type="radio" name="radioDestinataire"><label for="destinataire">Liste de destinataires : </label></td>
+							<td><!-- <input type="radio" name="radioDestinataire" id="radioDestinataire2"> --><label for="destinataire">Liste de destinataires : </label></td>
 							<td><input type="file" name="destinatairefile" id="destinatairefile" ></td>
 						</tr>
 						<tr>
@@ -101,7 +108,7 @@ if($_SESSION['auth'] != 'yes') {
 								<?php
 								$reponse = $bdd->query('SELECT * FROM observation');
 								?>
-								<select name="observation" name="observation" id="observation" required>
+								<select name="observation" id="observation" required>
 									<?php
 									while($ligne = $reponse->fetch())
 									{
@@ -117,7 +124,7 @@ if($_SESSION['auth'] != 'yes') {
 								<?php
 								$reponse = $bdd->query('SELECT * FROM type_courrier');
 								?>
-								<select name="type" name="type" id="type" required>
+								<select name="type" id="type" required>
 									<?php
 									while($ligne = $reponse->fetch())
 									{
@@ -125,7 +132,13 @@ if($_SESSION['auth'] != 'yes') {
 									}
 									?>
 								</select>
-							
+								<div id="divAR">
+									<select name="AR" id="AR">
+										<option value"!AR">Sans AR</option>
+										<option value="AR">Avec AR</option>
+									</select>
+								</div>
+								
 							</td>
 						</tr>
 						<tr>

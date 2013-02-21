@@ -1,5 +1,13 @@
 $(function() {
-	
+	var accuse;
+	var observation;
+	var type;
+	var objet;
+	var date;
+	var service;
+	var destinataire;
+
+
 	// modification du formulaire selon le sens du courrier
 	$('#sortant, #sortant2, #sortant3').hide();
 
@@ -11,27 +19,68 @@ $(function() {
 		$('#entrant, #entrant2').hide();
 		$('#sortant, #sortant2, #sortant3').show();
 	});
-		
+	
+	// fonction qui affiche ou non le menu de choix d'AR selon le type
+	$('select#type').change(function () {
+		type = $(this).val();
+		if (type == 2) { // on choisit ici les types qui pourront avoir un AR
+			$('#divAR').empty();
+		}
+		else {
+			$('div#divAR').html("<select name=\"AR\" id=\"AR\"><option value=\"!AR\">Sans AR</option><option value=\"AR\">Avec AR</option></select>");
+			
+		}
+	});
+
+	// fonction qui ajoute un destinataire sortant quand on clique sur le +
+	$('#imgSortant').on('click', function() {
+		$('#sortant2').insertAfter("<tr><td>"+$('#sortant2 td input#destinataire').clone()+"</td></tr>");
+	});
+
 	// validation du formulaire 
-	$('button#valider').on('click', function() {
+	$('#valider').on('click', function() {
+
 		date = $('#insertDate').val();
-		destinataire = $('#destinataire').val();
 		objet = $('#objet').val();
 		service = $('#service').val();
 		observation = $('observation').val();
-		type= $('type').val();
+		type = $('type').val();
 
+		if($('#divAR').html() != "") {
+			if($('select#AR').val() == "!AR") {
+				accuse = 0;
+			}
+			else {
+				accuse = null;
+			}
+		}
+
+		// selon le type de courrier on peut ou non dire s'il possède un AR
 		if($('#radioEntrant').is(':checked')) {
-			
+			sens = "Entrant";
 		}
 		if($('#radioSortant').is(':checked')) {
+			sens = "Sortant";
+			if ($('#radioDestinataire1').is(':checked')) {
+				destinataire = $('#destinataire').val();
+			}
+			else if ($('#radioDestinataire2').is(':checked')) {
+				destinataire = [];
+			}
 
 		}
 
-		
 		// envoi des données à la bdd
 		$.post('ajouter_utilisateur.php', {
-			
+			objet:""+objet+"",
+			destinataire:""+destinataire+"",
+			service:""+service+"",
+			date:""+date+"",
+			observation:""+observation+"",
+			accuse:""+accuse+"",
+			sens:""+sens+"",
+			type:""+type+"",
+
 		}, function() {
 			print("Insertion réussi");
 		})
