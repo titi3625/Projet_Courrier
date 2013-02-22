@@ -50,7 +50,7 @@ if($_SESSION['auth'] != 'yes') {
 						<td><label for="destinataire">Expéditeur : </label></td>
 						<td><input type="text" name="destinataire" id="destinataireEntrant"></td>
 					</tr>
-					<!-- <tr id="sortant">
+					<tr id="sortant">
 						<td><label for="service">Expediteur : </label></td>
 						<td>
 							<?php
@@ -65,7 +65,7 @@ if($_SESSION['auth'] != 'yes') {
 								?>
 							</select>
 						</td>
-					</tr> -->
+					</tr>
 					<tr>
 						<td><label for="objet">Objet : </label></td>
 						<td><input type="text" name="objet" id="objet" required></td>
@@ -86,9 +86,9 @@ if($_SESSION['auth'] != 'yes') {
 							</select>
 						</td>
 					</tr>
-					<!-- <tr id="sortant2">
+					<tr id="sortant2">
 						<td>
-							<input type="radio" name="radioDestinataire" id="radioDestinataire1">
+							<input type="radio" name="radioDestinataire" id="radioDestinataire1" checked>
 							<label for="destinataire">Destinataire : </label>
 						</td>
 						<td><input type="text" name="destinataire" id="destinataireSortant" ></td>
@@ -103,7 +103,7 @@ if($_SESSION['auth'] != 'yes') {
 								
 							<input type="button"  value="Inserer un fichier" style="width:150px;height:25px;" onclick="$('.file').click();"/>
 						</td>
-					</tr> -->
+					</tr>
 					<tr>
 						<td><label for="observation">Observation : </label></td>
 						<td>

@@ -34,8 +34,11 @@ $(function() {
 	});
 
 	// fonction qui ajoute un destinataire sortant quand on clique sur le +
+	var i = 2;
 	$('#imgAjouter').on('click', function() {
-		$('#sortant2').insertAfter("<tr><td>"+$('#sortant2 td input#destinataire').clone()+"</td></tr>");
+		ligne = "<tr><td>Destinataire "+i+" :</td><td><input type=\"text\" id=\"destinataireSortant"+i+"\"></td></tr>";
+		$('#sortant3').before(ligne);
+		i++;
 	});
 
 	// validation du formulaire 
@@ -82,8 +85,6 @@ $(function() {
 			}
 
 		}
-
-		alert(date+" "+destinataire+" "+objet+" "+service+" "+observation+" "+type+" "+sens+" "+accuse);
 
 		// envoi des données à la bdd
 		$.post('ajouter_utilisateur.php', {
