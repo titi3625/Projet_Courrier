@@ -3,7 +3,6 @@ include_once('include/bdd.php');
 
 // extraction des variables en post
 extract($_POST);
-//echo $objet;
 
 // recuperation des variables depuis l'ajax de formulaire_insertion.js
 if(empty($objet) || empty($destinataire) || empty($date)) {
@@ -11,14 +10,14 @@ if(empty($objet) || empty($destinataire) || empty($date)) {
 }
 else {
 
-	$objet = str_replace("'", "\'", $objet);
-	$destinataire = str_replace("'", "\'", $destinataire);
-	$date = str_replace("'", "\'", $date);
+	$objet = addslashes($objet);
+	$destinataire = addslashes($destinataire);
+	$date = addslashes($date);
 
 	// requete d'insertion dans la table courrier
 	$requeteCourrier = "INSERT INTO courrier VALUES('', '".$objet."', '".$date."', '".$sens."', '".$observation."', '".$accuse."', '".$type."');";
 	$reponseCourrier = $bdd->exec($requeteCourrier);
-
+	echo $requeteCourrier;
 	if($reponseCourrier > 0) { // si la premiere requete a fonctionné
 
 		// on recupere l'id du dernier courrier inséré
@@ -31,10 +30,8 @@ else {
 
 		// on verifie que le destinataire n'existe pas déja
 		$requeteSelectDestinataire = "SELECT * FROM destinataire WHERE nom_destinataire LIKE '%".$destinataire."%' LIMIT 1;";
-		//echo $requeteSelectDestinataire;
 		$reponseSelectDestinataire = $bdd->query($requeteSelectDestinataire);
-		$ligne = $reponseSelectDestinataire->fetchAll();
-		echo $ligne['id_destinataire'];
+		$ligne = $reponseSelectDestinataire->fetch();
 		// s'il n'existe pas on l'insere dans la base
 		if(count($ligne) == 0) {
 			$requeteDestinataire = "INSERT INTO destinataire VALUES('', '".$destinataire."');";
@@ -56,7 +53,6 @@ else {
 		// ensuite on creer le lien entre le destinataire et le courrier
 		// en utilisant l'id du dernier courrier et du destinataire
 		$requetePosseder = "INSERT INTO posseder VALUES('".$lastIdCourrier."', '".$lastIdDestinataire."');";
-		echo $requetePosseder;
 		$nb3 = $bdd->exec($requetePosseder);
 		
 
@@ -68,7 +64,7 @@ else {
 			echo "Erreur de base de données : posseder";
 		}
 		else {
-			echo "Insertion réussie";
+			echo "Le courrier a été ajouté";
 		}
 	}
 	else {

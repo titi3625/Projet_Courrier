@@ -151,6 +151,7 @@ a {
 .resultat table {
 	width: 100%;
 	border-collapse: collapse;
+	margin-bottom: 45px;
 }
 
 .resultat table td, .resultat table th {
