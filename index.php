@@ -89,6 +89,5 @@ session_start();
 	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
 	<script src="js/interface.js"></script>
-	<script src="js/main.js"></script>
 </body>
 </html>

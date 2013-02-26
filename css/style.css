@@ -51,7 +51,6 @@ a {
 }
 
 .menu dl dt {
-
 }
 
 .menu dl dt a {
@@ -79,7 +78,8 @@ a {
 	box-shadow: 2px 0 16px rgba(0, 0, 0, 0.6) inset;
 }
 
-.current {
+
+#current {
 	background: rgba(110,109,113,0.5);
 	box-shadow: 2px 0 16px rgba(0, 0, 0, 0.6) inset;
 }
@@ -91,6 +91,48 @@ a {
 	height: 40px;
 	background: rgba(110,109,113,1);
 }
+
+
+
+dl ul {
+	display: none;
+	position: relative;
+	top: 1px;
+	left: 5px;
+	width: 140px;
+	height: 100px;
+	padding: 0px;
+	margin: 0px;
+	background: rgba(110,109,113,1);
+	list-style-type: none; 
+	border-radius: 5px;
+}
+
+.sousMenu li {
+	text-align: center;
+	color: #EEEEEE;
+	text-decoration: none;
+}
+
+.sousMenu a {
+	display: inline-block;
+	height: 25px;
+	width: 140px;
+	color: #EEEEEE;
+	text-decoration: none;
+	line-height: 25px;
+	border-radius: 5px;
+}
+
+.sousMenu a:hover {
+	background: #EEEEEE;
+	color: #000;
+}
+
+#menu:hover .sousMenu {
+	display: block;
+}
+
 
 
 /* Mise en forme du contenu */
@@ -169,9 +211,13 @@ a {
 	width: auto;
 }
 
+#date {
+	width: 100px;
+}
+
 .inserer input[type="text"] {
 	height: 25px;
-	width: 198px;
+	width: auto;
 	padding-left: 5px;
 	box-shadow: 0px 0px 3px rgba(0,0,0,0.4) inset;
 	border: 1px solid white;
@@ -182,30 +228,23 @@ a {
 	width: 198px;
 }
 
-
-
 .inserer table tr {
 	height: 50px;
 }
 
 .inserer select {
-	width: 200px;
+	width: auto;
 }
 
 .inserer table td {
+	text-align: left;
+}
+
+#trBouton {
 	text-align: center;
 }
 
-#imgAjouter {
-	width: 16px;
-	height: 16px;
 
-}
-
-/*Mise en forme du champs de selection de fichier*/
-.file {
-	visibility: hidden;
-}
 
 /* Mise en forme du pied de page */
 .footer {

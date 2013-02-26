@@ -41,36 +41,34 @@ $(function() {
 		i++;
 	});
 
-	// validation du formulaire 
+	//========= validation du formulaire ============//
 	$('#valider').on('click', function() {
-
 		date = $('#insertDate').val();
 		objet = $('#objet').val();
-		service = $('#service').val();
 		observation = $('#observation').val();
 		type = $('#type').val();
-		//destinataire = $('#destinataire').val();
 
 		// selon le type de courrier on peut ou non dire s'il possède un AR
-		if($('#divAR').text() != "") {
-			if($('#AR').val() == "!AR") {
-				accuse = 0;
-			}
-			else {
-				accuse = null;
-			}
+		if($('#divAR').text() == "" || $('#AR').val() == "!AR") {
+			accuse = 0;
+		}
+		else {
+			accuse = null;
 		}
 
 		// si le radio courrier entrant est coché
 		if($('#radioEntrant').is(':checked')) {
 			// on definit la variable sens a "entrant"
+			// on prend le destinataire et le service correspondant
 			sens = "Entrant";
 			destinataire = $('#destinataireEntrant').val();
+			service = $('#serviceEntrant').val();
 		}
-		// si le radio courrier sortant est coché
-		if($('#radioSortant').is(':checked')) {
+		else if($('#radioSortant').is(':checked')) {
 			// on definit la variable sens a "sortant"
+			// on prend le destinataire et le service correspondant
 			sens = "Sortant";
+			service = $('#serviceSortant').val();
 
 			// si le champs destinataire classique est coché
 			if ($('#radioDestinataire1').is(':checked')) {
@@ -112,5 +110,6 @@ $(function() {
 		.removeClass('ui-state-active');
 		// efface les resultats de recherche
 		$('.resultat').hide();
+
 	});
 });

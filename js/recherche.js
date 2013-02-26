@@ -4,8 +4,10 @@ $(function() {
 	// verification et envoie des variable en ajax
 	$('#rechercher').on("click", function() {
 		// on recupere les valeurs du formulaire dans des variables
+		id = $('#rechercheId').val();
 		objet = $('#rechercheObjet').val();
 		destinataire = $('#rechercheDestinataire').val();
+		expediteur = $('#rechercheExpediteur').val();
 		service = $('#rechercheService').val();
 		d1 = $('#rechercheDate').val();
 		d2 = $('#rechercheDate2').val();
@@ -33,7 +35,9 @@ $(function() {
 		else {
 			// on envoie les variables au fichier php qui contient la requete
 			$.post('recherche.method.php', {
+				id:""+id+"",
 				objet:""+objet+"",
+				expediteur:""+expediteur+"",
 				destinataire:""+destinataire+"",
 				service:""+service+"",
 				date_debut:""+d1+"",
@@ -42,7 +46,6 @@ $(function() {
 			}, function(data) {
 				$('.resultat').html(data).show();
 			});
-			//$('.resultat').load('recherche.method.php', { objet:objet, destinataire:destinataire, service:service, date_debut:d1, date_fin:d2, sens:sens});
 		}
 		
 	});
@@ -53,8 +56,7 @@ $(function() {
 		.not(':button, :submit, :reset, :hidden')
 		.val('')
 		.removeAttr('checked')
-		.removeAttr('selected')
-		.removeClass('ui-state-active');
+		.removeAttr('selected');
 		// efface les resultats de recherche
 		$('.resultat').hide();
 	});
