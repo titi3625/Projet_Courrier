@@ -1,6 +1,6 @@
 <?php
 session_start();
-if($_SESSION['auth'] != 'yes') {
+if($_SESSION['auth'] != 'yes' && $_SESSION['droit'] != "admin") {
 	header('Location:index.php');
 	echo "<script>alert('Vous n'avez pas accès à cette page');</script>";
 }
@@ -9,7 +9,7 @@ if($_SESSION['auth'] != 'yes') {
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-	<title>Insertion courrier</title>
+	<title>Espace de gestions</title>
 
 	<!-- Link du css -->
 	<link rel="stylesheet" href="css/style.css">
@@ -38,11 +38,15 @@ if($_SESSION['auth'] != 'yes') {
 				if(isset($_GET['page']) && !empty($_GET['page'])) {
 					switch ($_GET['page']) {
 						case '1':
-							include('include/insertion_entrant.php');
+							include('include/gestion_type.php');
 							break;
 	
 						case '2':
-							include('include/insertion_sortant.php');
+							include('include/gestion_service.php');
+							break;
+	
+						case '3':
+								include('include/gestion_droit.php');				
 							break;
 						
 						default:

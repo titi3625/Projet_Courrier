@@ -23,7 +23,6 @@ else {
 	}
 	else {
 		$sql1 = "INSERT INTO destinataire VALUES('', '".$destinataire."', '".$_POST['serviceDest']."');";
-		echo $sql1;
 		$reponse1 = $bdd->exec($sql1);
 		$lastIdDest = $bdd->lastInsertId();
 	}
@@ -35,15 +34,15 @@ else {
 	}
 	else {
 		$sql2 = "INSERT INTO expediteur VALUES('', '".$expediteur."', '".$_POST['serviceExpe']."');";
-		echo $sql2;
 		$reponse2 = $bdd->exec($sql2);
 		$lastIdExpe = $bdd->lastInsertId();
 	}
 	
 	if(isset($lastIdExpe) && isset($lastIdDest)) {
 		$sql3 = "INSERT INTO courrier VALUES('', '".$objet."', '".$date."', '".$observation."', '0', '".$_POST['nature']."', '".$_POST['type']."', '".$lastIdExpe."', '".$lastIdDest."')";
-		echo $sql3;
 		$reponse3 = $bdd->exec($sql3);
+
+		header("Location: inserer.php?page=1");
 	}
 	else {
 		echo "Erreur de base de données";
