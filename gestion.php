@@ -1,20 +1,19 @@
 <?php
 session_start();
-if($_SESSION['auth'] != 'yes' && $_SESSION['droit'] != "admin") {
+if($_SESSION['auth'] != "yes" || $_SESSION['droit'] != "admin") {
+	echo "<script> alert('Vous n'avez pas accès à cette page'); </script>";
 	header('Location:index.php');
-	echo "<script>alert('Vous n'avez pas accès à cette page');</script>";
 }
 ?>
 <!doctype html>
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-	<title>Espace de gestions</title>
+	<title>Espace de gestion</title>
 
 	<!-- Link du css -->
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/Aristo/Aristo.css">
-
 
 </head>
 <body>
@@ -38,17 +37,14 @@ if($_SESSION['auth'] != 'yes' && $_SESSION['droit'] != "admin") {
 				if(isset($_GET['page']) && !empty($_GET['page'])) {
 					switch ($_GET['page']) {
 						case '1':
-							include('include/gestion_type.php');
+							include('include/type/gestion_type.php');
 							break;
-	
 						case '2':
-							include('include/gestion_service.php');
+							include('include/service/gestion_service.php');
 							break;
-	
 						case '3':
-								include('include/gestion_droit.php');				
+								include('include/utilisateurs/gestion_droit.php');				
 							break;
-						
 						default:
 							echo "Erreur de redirection ! (onch onch)";
 							break;

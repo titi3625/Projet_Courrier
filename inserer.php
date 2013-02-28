@@ -1,8 +1,8 @@
 <?php
 session_start();
-if($_SESSION['auth'] != 'yes') {
-	header('Location:index.php');
+if($_SESSION['auth'] != "yes") {
 	echo "<script>alert('Vous n'avez pas accès à cette page');</script>";
+	header('Location:index.php');
 }
 ?>
 <!doctype html>

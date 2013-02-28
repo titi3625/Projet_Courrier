@@ -17,7 +17,7 @@
 			<div class="separateur"></div>
 			<dl id="menu1">
 				<dt><a href="#">Inserer</a></dt>
-				<ul class="sousMenu12">
+				<ul class="sousMenu1">
 					<li><a href="inserer.php?page=1">Courrier départ</a></li>
 					<li><a href="inserer.php?page=2">Courrier arrivé</a></li>
 				</ul>

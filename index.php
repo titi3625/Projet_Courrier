@@ -78,6 +78,7 @@ session_start();
 		}
 		else {
 			echo '<p align="center">Vous êtes connecté(e)</p>';
+			echo $_SESSION['droit'];
 		}
 		?>
 	</div>

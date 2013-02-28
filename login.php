@@ -1,7 +1,7 @@
 <?php
 include_once('include/bdd.php');
 
-function login($username, $password) {
+function login($login, $mdp) {
 
 	$req = $bdd->query("SELECT * FROM utilisateur WHERE login_utilisateur = '$login' AND mdp_utilisateur = '$mdp'");
 	
