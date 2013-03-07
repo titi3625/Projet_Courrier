@@ -47,17 +47,21 @@
 		</tr>
 		<tr>
 			<td><label for="">Type : </label></td>
+			<td id="choixNature">
+				<?php
+				$requete = "SELECT * FROM nature";
+				$reponse = $bdd->query($requete);
+
+				while($ligne = $reponse->fetch()) 
+				{
+				?>
+					<p><input type="radio" name="nature" id="<?php echo $ligne['nom_nature'] ?>" value="<?php echo $ligne['id_nature'] ?>"><label for="<?php echo $ligne['nom_nature'] ?>"><?php echo $ligne['nom_nature'] ?></label></p>
+				<?php
+				}
+				?>
+			</td>
 			<td>
-				<select name="nature" id="nature">
-					<?php
-					$reponse = $bdd->query('SELECT * FROM nature');
-					
-					while($ligne = $reponse->fetch())
-					{
-						echo "<option value=".$ligne['id_nature'].">".$ligne['nom_nature']."</option>";
-					}
-					?>
-				</select>
+				<input type="text" name="numNature" id="numNature" placeholder="N° d'envoi" pattern="[a-zA-Z0-9]{5,15}" required>
 			</td>
 		</tr>
 		<tr>

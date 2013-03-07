@@ -5,7 +5,7 @@ include_once('include/bdd.php');
 extract($_POST);
 
 // recuperation des variables depuis l'ajax de formulaire_insertion.js
-if(empty($date) || empty($objet) || empty($observation) || empty($destinataire) || empty($expediteur)) {
+if(empty($date) || empty($objet) || empty($observation) || empty($destinataire) || empty($expediteur) || empty($numNature)) {
 	echo "Erreur : Le formulaire est incomplet";
 }
 else {
@@ -15,6 +15,7 @@ else {
 	$observation = addslashes(strip_tags($observation));
 	$destinataire = addslashes(strip_tags($destinataire));
 	$expediteur = addslashes(strip_tags($expediteur));
+	$numNature = addslashes(strip_tags($numNature));
 
 	$reponse11 = $bdd->query("SELECT * FROM destinataire WHERE nom_destinataire LIKE '%".$destinataire."%' AND id_service = '".$_POST['serviceDest']."' LIMIT 1");
 	$ligne1 = $reponse11->fetch();
@@ -39,7 +40,7 @@ else {
 	}
 	
 	if(isset($lastIdExpe) && isset($lastIdDest)) {
-		$sql3 = "INSERT INTO courrier VALUES('', '".$objet."', '".$date."', '".$observation."', '0', '".$_POST['nature']."', '".$_POST['type']."', '".$lastIdExpe."', '".$lastIdDest."')";
+		$sql3 = "INSERT INTO courrier VALUES('', '".$objet."', '".$date."', '".$observation."', '0', '".$_POST['nature']."', '".$numNature."', '".$_POST['type']."', '".$lastIdExpe."', '".$lastIdDest."')";
 		$reponse3 = $bdd->exec($sql3);
 
 		header("Location: inserer.php?page=1");

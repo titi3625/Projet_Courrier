@@ -1,4 +1,5 @@
 <legend>Gestion des utilisateurs et des droits</legend>
+
 <table id="tableauType">
 	<tr>
 		<th>Numéro d'utilisateur</th>
@@ -14,7 +15,7 @@
 			<td><?php echo $ligne['id_utilisateur']; ?></td>
 			<td><?php echo $ligne['prenom_utilisateur']." ".$ligne['nom_utilisateur']; ?></td>
 			<td>
-				<a href="#" onclick="window.open('include/utilisateurs/modifier_droit.php?id=<?php echo $ligne['id_service']; ?>&nom=<?php echo $ligne['nom_service']; ?>', 'wclose', 'width=500,height=300,toolbar=no,status=no,left=20,top=30'); Location:reload();">Modifier</a>/<a href="#" onclick="if (window.confirm('Vous etes sur de ne pas faire une betise ?')){location.href='include/utilisateurs/supprimer_utilisateur.php?id=<?php echo $ligne['id_utilisateur']; ?>';return true;} else {return false;}">Supprimer</a>
+				<a href="#" onclick="window.open('include/utilisateurs/modifier_droit.php?id=<?php echo $ligne['id_utilisateur']; ?>', 'wclose', 'width=500,height=300,toolbar=no,status=no,left=20,top=30'); Location:reload();">Modifier</a>/<a href="#" onclick="if (window.confirm('Vous etes sur de ne pas faire une betise ?')){location.href='include/utilisateurs/supprimer_utilisateur.php?id=<?php echo $ligne['id_utilisateur']; ?>';return true;} else {return false;}">Supprimer</a>
 			</td>
 		</tr>	
 	<?php
@@ -42,6 +43,15 @@
 		<tr>
 			<td><label for="type">Mot de passe : </label></td>
 			<td><input type="text" name="mdp" id="mdp" pattern="[A-Za-z._-\w]{1,20}" required></td>
+		</tr>
+		<tr>
+			<td><label for="type">Niveau de droit : </label></td>
+			<td>
+				<select name="droit" id="droit">
+					<option value="user">Utilisateur</option>
+					<option value="admin">Administrateur</option>
+				</select>
+			</td>
 		</tr>
 		<tr>
 			<td colspan="2" id="trBouton">

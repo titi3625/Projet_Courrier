@@ -9,7 +9,7 @@ if(isset($_POST)) {
 		switch ($action) {
 			case 'insertion':
 				try {
-					$reponse = $bdd->query("INSERT INTO service VALUES('', '".$nom."');");
+					$reponse = $bdd->query("INSERT INTO utilisateur VALUES('', '".$nom."', '".$prenom."', '".$login."', '".$mdp."', '".$droit."');");
 				}
 				catch(PDOException $e) {
 					die('Erreur : '.$e->getMessage());
@@ -17,18 +17,18 @@ if(isset($_POST)) {
 			
 				if($reponse > 0) {
 					echo "<script> alert(\"Le type a été ajouté\"); </script>";
-					header("Location: gestion.php?page=2");
+					header("Location: gestion.php?page=3");
 				}
 				else {
 					echo "<script> alert(\"Erreur dans la requête\"); </script>";
 				}
 
-				header("Location: ../gestion.php?page=2");
+				header("Location: ../gestion.php?page=3");
 				break;
 			case 'modification':
 
 				if(isset($id) && !empty($id)) {
-					$requete = "UPDATE service SET nom_service = '".$nom."' WHERE id_service = '".$id."';";
+					$requete = "UPDATE utilisateur SET nom_utilisateur = '".$nom."', prenom_utilisateur = '".$prenom."', login_utilisateur = '".$pseudo."', mdp_utilisateur = '".$mdp."', droit_utilisateur = '".$droit."' WHERE id_utilisateur = '".$id."';";
 					try {
 						$reponse = $bdd->exec($requete);
 					}

@@ -256,6 +256,14 @@ dl ul {
 	text-align: center;
 }
 
+#choixNature {
+
+}
+
+#numNature {
+	width: 100px;
+}
+
 /*Mise en forme du formulaire d'insertion de type*/
 #tableauType {
 	border-collapse: collapse;

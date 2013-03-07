@@ -7,6 +7,7 @@ if(isset($_POST)) {
 	if(isset($nom) && !empty($nom) && isset($action) && !empty($action)) {
 		// selon la variable $action on appelle la fonction correspondante
 		switch ($action) {
+			
 			case 'insertion':
 				try {
 					$reponse = $bdd->query("INSERT INTO nature VALUES('', '".$nom."');");
@@ -25,8 +26,8 @@ if(isset($_POST)) {
 
 				header("Location: ../gestion.php?page=1");
 				break;
-			case 'modification':
 
+			case 'modification':
 				if(isset($id) && !empty($id)) {
 					$requete = "UPDATE nature SET nom_nature = '".$nom."' WHERE id_nature = '".$id."';";
 					try {
