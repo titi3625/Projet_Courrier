@@ -15,7 +15,7 @@
 			<td>
 				<select name="serviceExpe" id="serviceExpe">
 					<?php
-					$reponse = $bdd->query('SELECT * FROM service');
+					$reponse = $bdd->query('SELECT * FROM service_expediteur');
 					
 					while($ligne = $reponse->fetch())
 					{
@@ -31,7 +31,7 @@
 			<td>
 				<select name="serviceDest" id="serviceDest">
 					<?php
-					$reponse = $bdd->query('SELECT * FROM service');
+					$reponse = $bdd->query('SELECT * FROM service_destinataire');
 					
 					while($ligne = $reponse->fetch())
 					{

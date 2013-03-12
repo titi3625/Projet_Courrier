@@ -1,9 +1,6 @@
 <?php
 session_start();
-if($_SESSION['auth'] != 'yes') {
-	header('Location:index.php');
-	echo "<script>alert('Vous n'avez pas accès à cette page');</script>";
-}
+$utilisateur = $_SESSION['login'];
 
 ?>
 <!doctype html>
@@ -11,55 +8,130 @@ if($_SESSION['auth'] != 'yes') {
 <head>
 	<meta charset="UTF-8">
 	<title>Modification courrier</title>
+	<style>
+		body {
+			
+		 	margin:auto;
+		}
+		#formModif {
+			
+		}
+		#formModif table {
+			margin: 0 auto;
+			height: 300px;
+		}
+	</style>
+	<link rel="stylesheet" href="css/Aristo/Aristo.css">
 </head>
 <body>
 	<?php
-	include_once('bdd.php');
+	include_once('include/bdd.php');
 
 	$id = addslashes($_GET['id']);
-	$sql = 'SELECT id_courrier, objet_courrier, date_courrier, sens_courrier, nom_observation, id_accuse_accuse_de_reception, nom_type_courrier, nom_destinataire, nom_service 
-	FROM courrier, service, destinataire, observation, type_courrier, posseder, attribuer 
-	WHERE courrier.id_courrier = posseder.id_courrier_courrier 
-	AND courrier.id_courrier = attribuer.id_courrier_courrier 
-	AND attribuer.id_service_service = service.id_service 
-	AND posseder.id_destinataire_destinataire = destinataire.id_destinataire 
-	AND courrier.id_observation_observation = observation.id_observation 
-	AND courrier.id_type_courrier_type_courrier = type_courrier.id_type_courrier 
-	AND id_courrier = "'.$id.'" GROUP BY id_courrier;';
+	$sql = 'SELECT id_courrier, objet_courrier, date_courrier, observation, id_accuse_de_reception, nom_nature, nom_type, num_envoi,  nom_expediteur, service_expediteur.nom_service AS serviceE, nom_destinataire, service_destinataire.nom_service AS serviceD
+		FROM courrier, destinataire, expediteur, service_expediteur, service_destinataire, nature, type, utilisateur
+		WHERE courrier.id_nature = nature.id_nature
+		AND courrier.id_type = type.id_type
+		AND courrier.id_destinataire = destinataire.id_destinataire
+		AND courrier.id_expediteur = expediteur.id_expediteur
+		AND destinataire.id_service = service_destinataire.id_service
+		AND expediteur.id_service = service_expediteur.id_service
+		AND id_courrier = "'.$id.'" 
+		GROUP BY id_courrier;';
 
 	$reponse = $bdd->query($sql);
 	$ligne = $reponse->fetch();
 	?>
 
 	<form action="modifier.method.php" method="post" id="formModif">
-		<tr>
-			<td><label for="objetModif">Objet : </label></td>
-			<td><input type="text" name="objetModif" id="objetModif" value="<?php echo $ligne['objet_courrier'] ?>"></td>
-		</tr>
-		<tr>
-			<td><label for="dateModif">Date : </label></td>
-			<td><input type="text" name="dateModif" id="dateModif" value="<?php echo $ligne['date_courrier'] ?>"></td>
-		</tr>
-		<tr>
-			<td><label for="observModif">Observation : </label></td>
-			<td><input type="text" name="observModif" id="observModif" value="<?php echo $ligne['nom_observation'] ?>"></td>
-		</tr>
-		<tr>
-			<td><label for="typeModif">Type : </label></td>
-			<td><input type="text" name="typeModif" id="typeModif" value="<?php echo $ligne['nom_type_courrier'] ?>"></td>
-		</tr>
-		<tr>
-			<td><label for="expeModif">Expediteur : </label></td>
-			<td><input type="text" name="expeModif" id="expeModif" value="<?php echo $ligne['objet_courrier'] ?>"></td>
-		</tr>
-		<tr>
-			<td><label for="destModif">Destinataire : </label></td>
-			<td><input type="text" name="destModif" id="destModif" value="<?php echo $ligne['objet_courrier'] ?>"></td>
-		</tr>
-		<tr>
-			<td><label for="sensModif">Sens du courrier : </label></td>
-			<td><input type="text" name="sensModif" id="sensModif" value="<?php echo $ligne['sens_courrier'] ?>"></td>
-		</tr>
+		<table>
+			<tr>
+				<td><label for="objetModif">Objet : </label></td>
+				<td><input type="text" name="objetModif" id="objetModif" value="<?php echo $ligne['objet_courrier'] ?>"></td>
+			</tr>
+			<tr>
+				<td><label for="dateModif">Date : </label></td>
+				<td><input type="text" name="dateModif" id="dateModif" value="<?php echo $ligne['date_courrier'] ?>"></td>
+			</tr>
+			<tr>
+				<td><label for="observModif">Observation : </label></td>
+				<td><input type="text" name="observModif" id="observModif" value="<?php echo $ligne['observation'] ?>"></td>
+			</tr>
+			<tr>
+				<td><label for="typeModif">Type : </label></td>
+				<td>
+					<select name="typeModif" id="typeModif">
+						<?php
+						$reponse = $bdd->query('SELECT * FROM nature');
+						
+						while($ligne2 = $reponse->fetch())
+						{
+							if($ligne['nom_nature'] == $ligne2['nom_nature']) {
+								echo "<option value=".$ligne2['id_nature']." selected>".$ligne2['nom_nature']."</option>";
+							}
+							else {
+								echo "<option value=".$ligne2['id_nature'].">".$ligne2['nom_nature']."</option>";
+							}
+							
+						}
+						?>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="expeModif">Expediteur : </label></td>
+				<td><input type="text" name="expeModif" id="expeModif" value="<?php echo $ligne['nom_expediteur'] ?>"></td>
+				<td>
+					<select name="serviceExpe" id="serviceExpe">
+						<?php
+						$reponse = $bdd->query('SELECT * FROM service_expediteur');
+						
+						while($ligne2 = $reponse->fetch())
+						{
+							if($ligne['serviceE'] == $ligne2['nom_service']) {
+								echo "<option value=".$ligne2['id_service']." selected>".$ligne2['nom_service']."</option>";
+							}
+							else {
+								echo "<option value=".$ligne2['id_service'].">".$ligne2['nom_service']."</option>";
+							}
+							
+						}
+						?>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="destModif">Destinataire : </label></td>
+				<td><input type="text" name="destModif" id="destModif" value="<?php echo $ligne['nom_destinataire'] ?>"></td>
+				<td>
+					<select name="serviceDest" id="serviceDest">
+						<?php
+						$reponse = $bdd->query('SELECT * FROM service_destinataire');
+					
+						while($ligne2 = $reponse->fetch())
+						{
+							if($ligne['serviceD'] == $ligne2['nom_service']) {
+								echo "<option value=".$ligne2['id_service']." selected>".$ligne2['nom_service']."</option>";
+							}
+							else {
+								echo "<option value=".$ligne2['id_service'].">".$ligne2['nom_service']."</option>";
+							}
+							
+						}
+						?>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center">
+					<input type="submit" value="Modifier" id="submitModif">
+				</td>
+			</tr>
+		</table>	
 	</form>
+	
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+	<script src="js/interface.js"></script>
 </body>
 </html>

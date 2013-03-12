@@ -40,8 +40,8 @@ if($_SESSION['auth'] != "yes") {
 						</th>
 					</tr>
 					<tr>
-						<td align="left"><label for="rechercheId">Recherche par identifiant : </label></td>
-						<td align="left"><input type="text" name="rechercheId" id="rechercheId" /></td>
+						<td align="left"><label for="rechercheId">Recherche par num d'envoi : </label></td>
+						<td align="left"><input type="text" name="rechercheNum" id="rechercheNum" /></td>
 					</tr>
 					<tr>
 						<td align="left"><label for="rechercheObjet">Recherche par objet : </label></td>
@@ -61,7 +61,7 @@ if($_SESSION['auth'] != "yes") {
 					</tr>
 					<tr>
 						<td><label for="rechercheDate">Recherche par date du : </label></td>
-						<td><input type="text" name="rechercheDate" id="rechercheDate" class="datepicker"/><label for="rechercheDate2"> au : </label> <input type="text" name="rechercheDate2" id="rechercheDate2" class="datepicker"/></td>
+						<td><input type="text" name="rechercheDate" id="rechercheDate" class="datepicker"/><label for="rechercheDate2"> au : </label><input type="text" name="rechercheDate2" id="rechercheDate2" class="datepicker"/></td>
 					</tr>
 					<tr align="center">
 						<td colspan="2">

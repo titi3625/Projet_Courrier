@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Sam 09 Mars 2013 à 13:12
+-- Généré le: Mar 12 Mars 2013 à 12:27
 -- Version du serveur: 5.5.24-log
 -- Version de PHP: 5.4.3
 
@@ -19,6 +19,21 @@ SET time_zone = "+00:00";
 --
 -- Base de données: `projet_courrier`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `accuse_de_reception`
+--
+
+CREATE TABLE IF NOT EXISTS `accuse_de_reception` (
+  `id_accuse` int(11) NOT NULL AUTO_INCREMENT,
+  `num_accuse` varchar(50) NOT NULL,
+  `date_accuse` date NOT NULL,
+  `id_courrier` int(11) NOT NULL,
+  PRIMARY KEY (`id_accuse`),
+  KEY `id_courrier` (`id_courrier`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -121,20 +136,44 @@ INSERT INTO `nature` (`id_nature`, `nom_nature`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `service`
+-- Structure de la table `service_destinataire`
 --
 
-CREATE TABLE IF NOT EXISTS `service` (
+CREATE TABLE IF NOT EXISTS `service_destinataire` (
   `id_service` int(11) NOT NULL AUTO_INCREMENT,
   `nom_service` varchar(60) NOT NULL,
   PRIMARY KEY (`id_service`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
--- Contenu de la table `service`
+-- Contenu de la table `service_destinataire`
 --
 
-INSERT INTO `service` (`id_service`, `nom_service`) VALUES
+INSERT INTO `service_destinataire` (`id_service`, `nom_service`) VALUES
+(1, 'Exterieur'),
+(2, 'UEPP'),
+(3, 'SATES'),
+(4, 'SESSAD'),
+(5, 'INFORMATIQUE'),
+(6, 'EME');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `service_expediteur`
+--
+
+CREATE TABLE IF NOT EXISTS `service_expediteur` (
+  `id_service` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_service` varchar(60) NOT NULL,
+  PRIMARY KEY (`id_service`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+
+--
+-- Contenu de la table `service_expediteur`
+--
+
+INSERT INTO `service_expediteur` (`id_service`, `nom_service`) VALUES
 (1, 'Exterieur'),
 (2, 'UEPP'),
 (3, 'SATES'),
@@ -202,13 +241,13 @@ ALTER TABLE `courrier`
 -- Contraintes pour la table `destinataire`
 --
 ALTER TABLE `destinataire`
-  ADD CONSTRAINT `destinataire_ibfk_1` FOREIGN KEY (`id_service`) REFERENCES `service` (`id_service`);
+  ADD CONSTRAINT `destinataire_ibfk_1` FOREIGN KEY (`id_service`) REFERENCES `service_destinataire` (`id_service`);
 
 --
 -- Contraintes pour la table `expediteur`
 --
 ALTER TABLE `expediteur`
-  ADD CONSTRAINT `expediteur_ibfk_1` FOREIGN KEY (`id_service`) REFERENCES `service` (`id_service`);
+  ADD CONSTRAINT `expediteur_ibfk_1` FOREIGN KEY (`id_service`) REFERENCES `service_expediteur` (`id_service`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

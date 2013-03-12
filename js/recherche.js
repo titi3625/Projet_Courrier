@@ -4,7 +4,7 @@ $(function() {
 	// verification et envoie des variable en ajax
 	$('#rechercher').on("click", function() {
 		// on recupere les valeurs du formulaire dans des variables
-		id = $('#rechercheId').val();
+		num = $('#rechercheNum').val();
 		objet = $('#rechercheObjet').val();
 		destinataire = $('#rechercheDestinataire').val();
 		expediteur = $('#rechercheExpediteur').val();
@@ -35,7 +35,7 @@ $(function() {
 		else {
 			// on envoie les variables au fichier php qui contient la requete
 			$.post('recherche.method.php', {
-				id:""+id+"",
+				num:""+num+"",
 				objet:""+objet+"",
 				expediteur:""+expediteur+"",
 				destinataire:""+destinataire+"",
@@ -52,11 +52,12 @@ $(function() {
 
 	// fonction qui vide les champs et reinitialise le formulaire
 	$('#reset').on("click", function() {
-		$(':input', '.divRecherche')
-		.not(':button, :submit, :reset, :hidden')
-		.val('')
-		.removeAttr('checked')
-		.removeAttr('selected');
+		// vide les champs
+		$(':input', '.divRecherche').not(':button, :submit, :reset, :hidden').val('');
+
+		// coche le premier bouton radio par defaut
+		$('#lesdeux').attr('checked', true);
+
 		// efface les resultats de recherche
 		$('.resultat').hide();
 	});

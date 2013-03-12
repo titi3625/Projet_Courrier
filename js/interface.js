@@ -10,7 +10,7 @@ $(function() {
 	$('#radio').buttonset();
 
 	// jqueryUI pour le plugin datepicker
-	$('#date').datepicker({
+	$('.datepicker').datepicker({
 		dateFormat: "yy-mm-dd",
 		dayNamesMin: [ "Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa" ],
 		monthNames: [ "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre" ]

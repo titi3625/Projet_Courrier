@@ -47,7 +47,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
 <body>
 	<fieldset>
 		<legend>Modifier un service</legend>
-		<form action="gestion_service.method.php" method="post" >
+		<form action="gestion_droit.method.php" method="post" >
 			<table>
 				<tr>
 					<td><label for="">Num. de l'utilisateur : </label></td>
@@ -76,7 +76,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
 						if($ligne['droit_utilisateur'] == "admin")
 						{
 						?>
-							<select name="droit" id="droit" value="<?php echo $ligne['droit_utilisateur'] ?>">
+							<select name="droit" id="droit">
 								<option value="user">Utilisateur</option>
 								<option value="admin" selected>Administrateur</option>
 							</select>
@@ -84,7 +84,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
 						}
 						else {
 							?>
-							<select name="droit" id="droit" value="<?php echo $ligne['droit_utilisateur'] ?>">
+							<select name="droit" id="droit">
 								<option value="user" selected>Utilisateur</option>
 								<option value="admin">Administrateur</option>
 							</select>
