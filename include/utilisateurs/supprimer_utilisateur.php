@@ -8,8 +8,9 @@ if(isset($_GET)) {
 }
 
 $requete = "DELETE FROM utilisateur WHERE id_utilisateur = '".$id."';";
+
 try {
-	//$reponse = $bdd->exec($requete);
+	$reponse = $bdd->exec($requete);
 }
 catch(PDOException $e) {
 	die($e->getMessage());

@@ -44,7 +44,7 @@
 		$sql .= ' AND nom_destinataire LIKE "%'.$dest.'%"';
 	}
 	if($service != null) {
-		$sql .= ' AND service_expediteur.nom_service LIKE "%'.$service.'%" OR service_destinataire.nom_service LIKE "%'.$service.'%"';
+		$sql .= ' AND serviceE LIKE "%'.$service.'%"  OR serviceD LIKE "%'.$service.'%"';
 	}
 
 	if($date_debut != null && $date_fin != null) {
@@ -79,7 +79,7 @@
 			<td><?php echo $ligne['nom_nature'] ?></td>
 			<td><?php echo $ligne['nom_expediteur']." (".$ligne['serviceE'].")" ?></td>
 			<td><?php echo $ligne['nom_destinataire']." (".$ligne['serviceD'].")" ?></td>
-			<td><a href="#" onClick="window.open('modifier.php?id=<?php echo $ligne['id_courrier'] ?>','Modification','toolbar=0, location=0, directories=0, status=0, scrollbars=0, resizable=0, copyhistory=0, menuBar=0, width=400, height=300');return(false)">Modifier</a></td>
+			<td><a href="#" onClick="window.open('modifier.php?id=<?php echo $ligne['id_courrier'] ?>','Modification','toolbar=0, location=0, directories=0, status=0, scrollbars=0, resizable=0, copyhistory=0, menuBar=0, width=400, height=350');return(false)">Modifier</a></td>
 		</tr>
 		<?php
 		}

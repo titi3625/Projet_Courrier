@@ -9,13 +9,14 @@ if(isset($_POST)) {
 		switch ($action) {
 			case 'insertion':
 				try {
-					$reponse = $bdd->query("INSERT INTO service VALUES('', '".$nom."');");
+					$reponse = $bdd->exec("INSERT INTO service_destinataire VALUES('', '".$nom."');");
+					$reponse2 = $bdd->exec("INSERT INTO service_expediteur VALUES('', '".$nom."');");
 				}
 				catch(PDOException $e) {
 					die('Erreur : '.$e->getMessage());
 				}
 			
-				if($reponse > 0) {
+				if($reponse > 0 && $reponse2 > 0) {
 					echo "<script> alert(\"Le type a été ajouté\"); </script>";
 					header("Location: gestion.php?page=2");
 				}
@@ -28,15 +29,17 @@ if(isset($_POST)) {
 			case 'modification':
 
 				if(isset($id) && !empty($id)) {
-					$requete = "UPDATE service SET nom_service = '".$nom."' WHERE id_service = '".$id."';";
+					$requete = "UPDATE service_destinataire SET nom_service = '".$nom."' WHERE id_service = '".$id."';";
+					$requete2 = "UPDATE service_expediteur SET nom_service = '".$nom."' WHERE id_service = '".$id."';";
 					try {
 						$reponse = $bdd->exec($requete);
+						$reponse2 = $bdd->exec($requete2);
 					}
 					catch(PDOException $e) {
 						die('Erreur : '.$e->getMessage());
 					}
 					
-					if($reponse > 0) {
+					if($reponse > 0 && $reponse2 > 0) {
 						echo "<script> alert(\"Le type a été modifié\"); </script>";
 					}
 					else {

@@ -1,8 +1,7 @@
 <?php
 session_start();
 if($_SESSION['auth'] != "yes" || $_SESSION['droit'] != "admin") {
-	echo "<script> alert('Vous n'avez pas accès à cette page'); </script>";
-	header('Location:index.php');
+	header('Location: erreur_acces.php');
 }
 ?>
 <!doctype html>

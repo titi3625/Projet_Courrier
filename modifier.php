@@ -13,12 +13,9 @@ $utilisateur = $_SESSION['login'];
 			
 		 	margin:auto;
 		}
-		#formModif {
-			
-		}
 		#formModif table {
 			margin: 0 auto;
-			height: 300px;
+			height: 350px;
 		}
 	</style>
 	<link rel="stylesheet" href="css/Aristo/Aristo.css">
@@ -26,9 +23,15 @@ $utilisateur = $_SESSION['login'];
 <body>
 	<?php
 	include_once('include/bdd.php');
-
-	$id = addslashes($_GET['id']);
-	$sql = 'SELECT id_courrier, objet_courrier, date_courrier, observation, id_accuse_de_reception, nom_nature, nom_type, num_envoi,  nom_expediteur, service_expediteur.nom_service AS serviceE, nom_destinataire, service_destinataire.nom_service AS serviceD
+	if(isset($_GET['id']) && !empty($_GET['id'])) {
+		$id = addslashes($_GET['id']);
+	}
+	else {
+		echo "Erreuuur";
+		return false;
+	}
+	
+	$sql = 'SELECT id_courrier, objet_courrier, date_courrier, observation, id_accuse_de_reception, nom_nature, nom_type, num_envoi, courrier.id_expediteur, nom_expediteur, service_expediteur.nom_service AS serviceE, courrier.id_destinataire, nom_destinataire, service_destinataire.nom_service AS serviceD
 		FROM courrier, destinataire, expediteur, service_expediteur, service_destinataire, nature, type, utilisateur
 		WHERE courrier.id_nature = nature.id_nature
 		AND courrier.id_type = type.id_type
@@ -43,8 +46,13 @@ $utilisateur = $_SESSION['login'];
 	$ligne = $reponse->fetch();
 	?>
 
-	<form action="modifier.method.php" method="post" id="formModif">
+	<form action="modifier_courrier.php" method="post" id="formModif">
+		<input type="hidden" name="idModif" id="idModif" value="<?php echo $id ?>">
 		<table>
+			<tr>
+				<td><label for="numModif">Num. d'envoi : </label></td>
+				<td><input type="text" name="numModif" id="numModif" value="<?php echo $ligne['num_envoi'] ?>"></td>
+			</tr>
 			<tr>
 				<td><label for="objetModif">Objet : </label></td>
 				<td><input type="text" name="objetModif" id="objetModif" value="<?php echo $ligne['objet_courrier'] ?>"></td>
@@ -80,7 +88,10 @@ $utilisateur = $_SESSION['login'];
 			</tr>
 			<tr>
 				<td><label for="expeModif">Expediteur : </label></td>
-				<td><input type="text" name="expeModif" id="expeModif" value="<?php echo $ligne['nom_expediteur'] ?>"></td>
+				<td>
+					<input type="text" name="expeModif" id="expeModif" value="<?php echo $ligne['nom_expediteur'] ?>">
+					<input type="hidden" name="idExpeModif" id="idExpeModif" value="<?php echo $ligne['id_expediteur'] ?>">
+				</td>
 				<td>
 					<select name="serviceExpe" id="serviceExpe">
 						<?php
@@ -102,7 +113,10 @@ $utilisateur = $_SESSION['login'];
 			</tr>
 			<tr>
 				<td><label for="destModif">Destinataire : </label></td>
-				<td><input type="text" name="destModif" id="destModif" value="<?php echo $ligne['nom_destinataire'] ?>"></td>
+				<td>
+					<input type="text" name="destModif" id="destModif" value="<?php echo $ligne['nom_destinataire'] ?>">
+					<input type="hidden" name="idDestModif" id="idDestModif" value="<?php echo $ligne['id_destinataire'] ?>">
+				</td>
 				<td>
 					<select name="serviceDest" id="serviceDest">
 						<?php

@@ -23,7 +23,7 @@ if(isset($_POST)) {
 					echo "<script> alert(\"Erreur dans la requête\"); </script>";
 				}
 
-				header("Location: ../gestion.php?page=3");
+				header("Location: ../../gestion.php?page=3");
 				break;
 			case 'modification':
 

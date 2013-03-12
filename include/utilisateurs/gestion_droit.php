@@ -23,7 +23,7 @@
 	?>
 </table>
 
-<form action="include/service/gestion_droit.method.php" method="post" id="insererType">
+<form action="include/utilisateurs/gestion_droit.method.php" method="post" id="insererType">
 	<table>
 		<tr>
 			<td><label for="type">Nom : </label></td>
@@ -42,14 +42,14 @@
 		</tr>
 		<tr>
 			<td><label for="type">Mot de passe : </label></td>
-			<td><input type="text" name="mdp" id="mdp" pattern="[A-Za-z._-\w]{1,20}" required></td>
+			<td><input type="password" name="mdp" id="mdp" pattern="[A-Za-z._-\w]{1,20}" required></td>
 		</tr>
 		<tr>
 			<td><label for="type">Niveau de droit : </label></td>
 			<td>
 				<select name="droit" id="droit">
-					<option value="user">Utilisateur</option>
-					<option value="admin">Administrateur</option>
+					<option value="user">Troufion</option>
+					<option value="admin">Patron</option>
 				</select>
 			</td>
 		</tr>
