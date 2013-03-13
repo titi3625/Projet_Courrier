@@ -59,7 +59,7 @@ $utilisateur = $_SESSION['login'];
 			</tr>
 			<tr>
 				<td><label for="dateModif">Date : </label></td>
-				<td><input type="text" name="dateModif" id="dateModif" value="<?php echo $ligne['date_courrier'] ?>"></td>
+				<td><input type="text" name="dateModif" id="dateModif" class="datepicker" value="<?php echo $ligne['date_courrier'] ?>"></td>
 			</tr>
 			<tr>
 				<td><label for="observModif">Observation : </label></td>

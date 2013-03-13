@@ -29,8 +29,8 @@ if(isset($_POST)) {
 			case 'modification':
 
 				if(isset($id) && !empty($id)) {
-					$requete = "UPDATE service_destinataire SET nom_service = '".$nom."' WHERE id_service = '".$id."';";
-					$requete2 = "UPDATE service_expediteur SET nom_service = '".$nom."' WHERE id_service = '".$id."';";
+					$requete = "UPDATE service_destinataire SET nom_service = '".$nom."' WHERE id_serviceD = '".$id."';";
+					$requete2 = "UPDATE service_expediteur SET nom_service = '".$nom."' WHERE id_serviceE = '".$id."';";
 					try {
 						$reponse = $bdd->exec($requete);
 						$reponse2 = $bdd->exec($requete2);

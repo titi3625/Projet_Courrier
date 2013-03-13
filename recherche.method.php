@@ -19,14 +19,14 @@
 	$sens = addslashes(strip_tags($_POST['sens']));
 
 	// construction de la requete SQL
-	$sql = 'SELECT id_courrier, objet_courrier, date_courrier, observation, id_accuse_de_reception, nom_nature, nom_type, num_envoi,  nom_expediteur, service_expediteur.nom_service AS serviceE, nom_destinataire, service_destinataire.nom_service AS serviceD
+	$sql = 'SELECT id_courrier, objet_courrier, date_courrier, observation, id_accuse_de_reception, nom_nature, nom_type, num_envoi,  nom_expediteur, service_expediteur.nom_serviceE AS serviceE, nom_destinataire, service_destinataire.nom_serviceD AS serviceD
 		FROM courrier, destinataire, expediteur, service_expediteur, service_destinataire, nature, type, utilisateur
 		WHERE courrier.id_nature = nature.id_nature
 		AND courrier.id_type = type.id_type
 		AND courrier.id_destinataire = destinataire.id_destinataire
 		AND courrier.id_expediteur = expediteur.id_expediteur
-		AND destinataire.id_service = service_destinataire.id_service
-		AND expediteur.id_service = service_expediteur.id_service';
+		AND destinataire.id_service = service_destinataire.id_serviceD
+		AND expediteur.id_service = service_expediteur.id_serviceE';
 
 	if($num != null) {
 		$sql .= ' AND num_envoi = "'.$num.'"';
@@ -44,7 +44,7 @@
 		$sql .= ' AND nom_destinataire LIKE "%'.$dest.'%"';
 	}
 	if($service != null) {
-		$sql .= ' AND serviceE LIKE "%'.$service.'%"  OR serviceD LIKE "%'.$service.'%"';
+		$sql .= ' AND (service_expediteur.nom_serviceE LIKE "%'.$service.'%" OR service_destinataire.nom_serviceD LIKE "%'.$service.'%")';
 	}
 
 	if($date_debut != null && $date_fin != null) {

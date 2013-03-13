@@ -6,7 +6,7 @@
 		<td>Action</td>
 	</tr>
 	<?php
-	$reponse = $bdd->query("SELECT service_expediteur.id_service AS id_serviceE, service_expediteur.nom_service AS nom_serviceE FROM service_expediteur");
+	$reponse = $bdd->query("SELECT service_expediteur.id_serviceE AS id_serviceE, service_expediteur.nom_serviceE AS nom_serviceE FROM service_expediteur");
 	while($ligne = $reponse->fetch())
 	{
 	?>

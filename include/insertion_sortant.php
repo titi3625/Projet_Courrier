@@ -19,7 +19,7 @@
 					
 					while($ligne = $reponse->fetch())
 					{
-						echo "<option value=".$ligne['id_service'].">".$ligne['nom_service']."</option>";
+						echo "<option value=".$ligne['id_serviceE'].">".$ligne['nom_serviceE']."</option>";
 					}
 					?>
 				</select>
@@ -35,7 +35,7 @@
 					
 					while($ligne = $reponse->fetch())
 					{
-						echo "<option value=".$ligne['id_service'].">".$ligne['nom_service']."</option>";
+						echo "<option value=".$ligne['id_serviceD'].">".$ligne['nom_serviceD']."</option>";
 					}
 					?>
 				</select>
