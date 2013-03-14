@@ -19,7 +19,7 @@
 	$sens = addslashes(strip_tags($_POST['sens']));
 
 	// construction de la requete SQL
-	$sql = 'SELECT id_courrier, objet_courrier, date_courrier, observation, id_accuse_de_reception, nom_nature, nom_type, num_envoi,  nom_expediteur, service_expediteur.nom_serviceE AS serviceE, nom_destinataire, service_destinataire.nom_serviceD AS serviceD
+	$sql = 'SELECT id_courrier, objet_courrier, date_courrier, observation, id_accuse_de_reception, nom_nature, nom_type, courrier.num_envoi, nom_expediteur, service_expediteur.nom_serviceE AS serviceE, nom_destinataire, service_destinataire.nom_serviceD AS serviceD
 		FROM courrier, destinataire, expediteur, service_expediteur, service_destinataire, nature, type, utilisateur
 		WHERE courrier.id_nature = nature.id_nature
 		AND courrier.id_type = type.id_type

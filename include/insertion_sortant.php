@@ -1,4 +1,4 @@
-<legend>Ajouter un courrier sortant</legend>
+<legend>Ajouter un courrier départ</legend>
 <form action="ajouter_courrier.php" method="post" id="insererSortant">
 	<table>
 		<tr>
@@ -47,20 +47,20 @@
 		</tr>
 		<tr>
 			<td><label for="">Type : </label></td>
-			<td>
+			<td id="choixNature">
 				<?php
 				$reponse = $bdd->query('SELECT * FROM nature');
 				while($ligne = $reponse->fetch())
 				{
 				?>
-					<p><input type="radio" name="nature" id="<?php echo $ligne['nom_nature'] ?>" value="<?php echo $ligne['id_nature'] ?>"><label for="<?php echo $ligne['nom_nature'] ?>"><?php echo $ligne['nom_nature'] ?></label></p>
+					<p><input type="radio" name="nature" id="<?php echo $ligne['nom_nature'] ?>" plop="<?php echo $ligne['num_envoi'] ?>" value="<?php echo $ligne['id_nature'] ?>"><label for="<?php echo $ligne['nom_nature'] ?>"><?php echo $ligne['nom_nature'] ?></label></p>
 
 				<?php
 				}
 				?>
 			</td>
 			<td>
-				<input type="text" name="numNature" id="numNature" placeholder="N° d'envoi" pattern="[a-zA-Z0-9]{5,15}" required>
+				<input type="text" name="numNature" id="numNature" placeholder="N° d'envoi ou colis" pattern="[a-zA-Z0-9]{5,15}" required>
 			</td>
 		</tr>
 		<tr>

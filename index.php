@@ -30,11 +30,17 @@ session_start();
 
 	
 	<div class="content">
+		<h2><p align="center">Bienvenue sur le gestionnaire de courrier de l'EMPS</p></h2>
+		
+		
+
 		<?php
 		if(!isset($_SESSION['auth']) || $_SESSION['auth'] == 'no') {
 		?>
 			<form action="index.php" method="post">
+				<p align="center">Vous devez vous connecter pour accéder à l'interface</p>
 				<table class="tableauConnexion">
+
 					<tr>
 						<td><label for="login">Nom d'utilisateur : </label></td>
 						<td><input type="text" name="login" autofocus required></td>
@@ -86,8 +92,8 @@ session_start();
 		Copyright tiboCorP et plopWorld
 	</div>
 
-	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.min.js"></script>
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery-ui-1.10.1.custom.min.js"></script>
 	<script src="js/interface.js"></script>
 </body>
 </html>

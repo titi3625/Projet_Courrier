@@ -43,6 +43,7 @@ if(isset($_GET['id']) && !empty($_GET['id']) && isset($_GET['nom']) && !empty($_
 		<legend>Modifier un type</legend>
 		<form action="gestion_type.method.php" method="post" >
 			<table>
+				
 				<tr>
 					<td><label for="">Num. du type : </label></td>
 					<td><?php echo $id; ?></td>
@@ -50,6 +51,21 @@ if(isset($_GET['id']) && !empty($_GET['id']) && isset($_GET['nom']) && !empty($_
 				<tr>
 					<td><label for="nom">Nom : </label></td>
 					<td><input type="text" name="nom" id="nom" value="<?php echo $nom; ?>" pattern="[A-Za-z._-\w]{1,20}" required></td>
+				</tr>
+				<tr>
+				<?php
+				if($num == 1) {
+				?>
+					<td colspan="2"><input type="checkbox" name="num" id="num" checked><label for="num">Avec numéro d'envoi</label></td>
+				<?php
+				}
+				else {
+				?>
+					<td colspan="2"><input type="checkbox" name="num" id="num"><label for="num">Avec numéro d'envoi</label></td>
+				<?php
+				}
+				?>
+					
 				</tr>
 				<tr><td colspan="2"><input type="submit" value="Modifier" name="valider"></td></tr>
 			</table>

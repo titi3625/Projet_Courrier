@@ -5,12 +5,20 @@ include('../bdd.php');
 if(isset($_POST)) {
 	extract($_POST);
 	if(isset($nom) && !empty($nom) && isset($action) && !empty($action)) {
+
+		if($num) {
+			$num = '1';
+		}
+		else {
+			$num = '0';
+		}
+
 		// selon la variable $action on appelle la fonction correspondante
 		switch ($action) {
 			
 			case 'insertion':
 				try {
-					$reponse = $bdd->query("INSERT INTO nature VALUES('', '".$nom."');");
+					$reponse = $bdd->query("INSERT INTO nature VALUES('', '".$nom."', '".$num."');");
 				}
 				catch(PDOException $e) {
 					die('Erreur : '.$e->getMessage());
@@ -24,12 +32,12 @@ if(isset($_POST)) {
 					echo "<script> alert(\"Erreur dans la requête\"); </script>";
 				}
 
-				header("Location: ../gestion.php?page=1");
+				header("Location: ../../gestion.php?page=1");
 				break;
 
 			case 'modification':
 				if(isset($id) && !empty($id)) {
-					$requete = "UPDATE nature SET nom_nature = '".$nom."' WHERE id_nature = '".$id."';";
+					$requete = "UPDATE nature SET nom_nature = '".$nom."', num_envoi = '".$num."' WHERE id_nature = '".$id."';";
 					try {
 						$reponse = $bdd->exec($requete);
 					}

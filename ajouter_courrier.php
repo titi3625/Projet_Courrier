@@ -7,9 +7,10 @@ extract($_POST);
 // recuperation des variables depuis l'ajax de formulaire_insertion.js
 if(empty($date) || empty($objet) || empty($observation) || empty($destinataire) || empty($expediteur) || empty($numNature)) {
 	echo "Erreur : Le formulaire est incomplet";
+	header("refresh:2;url=inserer.php?page=".$type);
 }
 else {
-
+	$type = addslashes(strip_tags($type));
 	$date = addslashes(strip_tags($date));
 	$objet = addslashes(strip_tags($objet));
 	$observation = addslashes(strip_tags($observation));
@@ -42,11 +43,12 @@ else {
 	if(isset($lastIdExpe) && isset($lastIdDest)) {
 		$sql3 = "INSERT INTO courrier VALUES('', '".$objet."', '".$date."', '".$observation."', '0', '".$_POST['nature']."', '".$numNature."', '".$_POST['type']."', '".$lastIdExpe."', '".$lastIdDest."')";
 		$reponse3 = $bdd->exec($sql3);
-
-		header("Location: inserer.php?page=1");
+		$lastIdCourrier = $bdd->lastInsertId();
+		header("Location: inserer.php?page=".$type."&num=".$lastIdCourrier);
 	}
 	else {
-		echo "Erreur de base de données";
+		echo "Erreur de base de données, veuillez réessayer";
+		header("refresh:2;url=inserer.php?page=".$type);
 	}
 
 }

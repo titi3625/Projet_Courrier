@@ -85,8 +85,8 @@ if($_SESSION['auth'] != "yes") {
 		
 	</div>
 
-	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.10.0/jquery-ui.js"></script>
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery-ui-1.10.1.custom.min.js"></script>
 	<script src="js/interface.js"></script>
 	<script src="js/recherche.js"></script>
 </body>

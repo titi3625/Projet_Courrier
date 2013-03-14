@@ -5,12 +5,13 @@ include('../bdd.php');
 if(isset($_POST)) {
 	extract($_POST);
 	if(isset($nom) && !empty($nom) && isset($action) && !empty($action)) {
+		
 		// selon la variable $action on appelle la fonction correspondante
 		switch ($action) {
 			case 'insertion':
 				try {
-					$reponse = $bdd->exec("INSERT INTO service_destinataire VALUES('', '".$nom."');");
-					$reponse2 = $bdd->exec("INSERT INTO service_expediteur VALUES('', '".$nom."');");
+					$reponse = $bdd->exec("INSERT INTO service_destinataire VALUES('', '".$nom."', '1');");
+					$reponse2 = $bdd->exec("INSERT INTO service_expediteur VALUES('', '".$nom."', '1');");
 				}
 				catch(PDOException $e) {
 					die('Erreur : '.$e->getMessage());
@@ -24,7 +25,7 @@ if(isset($_POST)) {
 					echo "<script> alert(\"Erreur dans la requête\"); </script>";
 				}
 
-				header("Location: ../gestion.php?page=2");
+				header("Location: ../../gestion.php?page=2");
 				break;
 			case 'modification':
 
