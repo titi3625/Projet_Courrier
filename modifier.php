@@ -31,16 +31,16 @@ $utilisateur = $_SESSION['login'];
 		return false;
 	}
 	
-	$sql = 'SELECT id_courrier, objet_courrier, date_courrier, observation, id_accuse_de_reception, nom_nature, nom_type, num_envoi, courrier.id_expediteur, nom_expediteur, service_expediteur.nom_service AS serviceE, courrier.id_destinataire, nom_destinataire, service_destinataire.nom_service AS serviceD
+	$sql = 'SELECT id_courrier, objet_courrier, date_courrier, observation, id_accuse_de_reception, nom_nature, nom_type, courrier.num_envoi, nom_expediteur, service_expediteur.nom_serviceE AS serviceE, nom_destinataire, service_destinataire.nom_serviceD AS serviceD
 		FROM courrier, destinataire, expediteur, service_expediteur, service_destinataire, nature, type, utilisateur
 		WHERE courrier.id_nature = nature.id_nature
 		AND courrier.id_type = type.id_type
 		AND courrier.id_destinataire = destinataire.id_destinataire
 		AND courrier.id_expediteur = expediteur.id_expediteur
-		AND destinataire.id_service = service_destinataire.id_service
-		AND expediteur.id_service = service_expediteur.id_service
+		AND destinataire.id_service = service_destinataire.id_serviceD
+		AND expediteur.id_service = service_expediteur.id_serviceE
 		AND id_courrier = "'.$id.'" 
-		GROUP BY id_courrier;';
+		GROUP BY id_courrier';
 
 	$reponse = $bdd->query($sql);
 	$ligne = $reponse->fetch();
@@ -99,11 +99,11 @@ $utilisateur = $_SESSION['login'];
 						
 						while($ligne2 = $reponse->fetch())
 						{
-							if($ligne['serviceE'] == $ligne2['nom_service']) {
-								echo "<option value=".$ligne2['id_service']." selected>".$ligne2['nom_service']."</option>";
+							if($ligne['serviceE'] == $ligne2['nom_serviceE']) {
+								echo "<option value=".$ligne2['id_serviceE']." selected>".$ligne2['nom_serviceE']."</option>";
 							}
 							else {
-								echo "<option value=".$ligne2['id_service'].">".$ligne2['nom_service']."</option>";
+								echo "<option value=".$ligne2['id_serviceE'].">".$ligne2['nom_serviceE']."</option>";
 							}
 							
 						}
@@ -124,11 +124,11 @@ $utilisateur = $_SESSION['login'];
 					
 						while($ligne2 = $reponse->fetch())
 						{
-							if($ligne['serviceD'] == $ligne2['nom_service']) {
-								echo "<option value=".$ligne2['id_service']." selected>".$ligne2['nom_service']."</option>";
+							if($ligne['serviceD'] == $ligne2['nom_serviceD']) {
+								echo "<option value=".$ligne2['id_serviceD']." selected>".$ligne2['nom_serviceD']."</option>";
 							}
 							else {
-								echo "<option value=".$ligne2['id_service'].">".$ligne2['nom_service']."</option>";
+								echo "<option value=".$ligne2['id_serviceD'].">".$ligne2['nom_serviceD']."</option>";
 							}
 							
 						}

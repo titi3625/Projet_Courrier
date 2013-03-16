@@ -1,5 +1,5 @@
 <?php
-if(isset($_GET['id']) && !empty($_GET['id']) && isset($_GET['nom']) && !empty($_GET['nom'])) {
+if(isset($_GET['id']) && !empty($_GET['id']) && isset($_GET['nom']) && !empty($_GET['nom']) && isset($_GET['active'])) {
 	extract($_GET);
 }
 ?>
@@ -50,6 +50,20 @@ if(isset($_GET['id']) && !empty($_GET['id']) && isset($_GET['nom']) && !empty($_
 				<tr>
 					<td><label for="nom">Nom : </label></td>
 					<td><input type="text" name="nom" id="nom" value="<?php echo $nom; ?>" pattern="[A-Za-z._-\w]{1,20}" required></td>
+				</tr>
+				<tr>
+				<?php
+				if($active == '1') {
+				?>
+					<td colspan="2" align="2"><input type="checkbox" id="active" name="active" checked><label for="active">Actif</label></td>
+				<?php
+				}
+				else {
+				?>
+					<td colspan="2" align="2"><input type="checkbox" id="active" name="active"><label for="active">Actif</label></td>
+				<?php
+				}
+				?>	
 				</tr>
 				<tr><td colspan="2"><input type="submit" value="Modifier" name="valider"></td></tr>
 			</table>

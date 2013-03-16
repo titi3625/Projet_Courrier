@@ -16,7 +16,7 @@ if(isset($_POST)) {
 				}
 			
 				if($reponse > 0) {
-					echo "<script> alert(\"Le type a été ajouté\"); </script>";
+					echo "<script> alert(\"L'utilisateur a été ajouté\"); </script>";
 					header("Location: gestion.php?page=3");
 				}
 				else {
@@ -37,7 +37,7 @@ if(isset($_POST)) {
 					}
 					
 					if($reponse > 0) {
-						echo "<script> alert(\"Le type a été modifié\"); </script>";
+						echo "<script> alert(\"L'utilisateur' a été modifié\"); </script>";
 					}
 					else {
 						echo "<script> alert(\"Erreur dans la requête\"); </script>";

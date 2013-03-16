@@ -19,7 +19,10 @@
 					
 					while($ligne = $reponse->fetch())
 					{
-						echo "<option value=".$ligne['id_serviceE'].">".$ligne['nom_serviceE']."</option>";
+						if($ligne['active'] == '1') {
+							echo "<option value=".$ligne['id_serviceE'].">".$ligne['nom_serviceE']."</option>";
+						}
+						
 					}
 					?>
 				</select>
@@ -35,7 +38,9 @@
 					
 					while($ligne = $reponse->fetch())
 					{
-						echo "<option value=".$ligne['id_serviceD'].">".$ligne['nom_serviceD']."</option>";
+						if($ligne['active'] == '1') {
+							echo "<option value=".$ligne['id_serviceD'].">".$ligne['nom_serviceD']."</option>";
+						}
 					}
 					?>
 				</select>
@@ -53,7 +58,7 @@
 				while($ligne = $reponse->fetch())
 				{
 				?>
-					<p><input type="radio" name="nature" id="<?php echo $ligne['nom_nature'] ?>" plop="<?php echo $ligne['num_envoi'] ?>" value="<?php echo $ligne['id_nature'] ?>"><label for="<?php echo $ligne['nom_nature'] ?>"><?php echo $ligne['nom_nature'] ?></label></p>
+					<p><input type="radio" name="nature" id="<?php echo $ligne['nom_nature'] ?>" plop="<?php echo $ligne['num_envoi'] ?>" value="<?php echo $ligne['id_nature'] ?>" required><label for="<?php echo $ligne['nom_nature'] ?>"><?php echo $ligne['nom_nature'] ?></label></p>
 
 				<?php
 				}

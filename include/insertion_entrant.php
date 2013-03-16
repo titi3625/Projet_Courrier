@@ -7,11 +7,11 @@
 		</tr>
 		<tr>
 			<td><label for="objet">Objet : </label></td>
-			<td><input type="text" name="objet" id="objet"></td>
+			<td><input type="text" name="objet" id="objet" required></td>
 		</tr>
 		<tr>
 			<td><label for="expediteur">Expéditeur : </label></td>
-			<td><input type="text" name="expediteur" id="expediteur"></td>
+			<td><input type="text" name="expediteur" id="expediteur" required></td>
 			<td>
 				<select name="serviceExpe" id="serviceExpe">
 					<?php
@@ -19,7 +19,9 @@
 					
 					while($ligne = $reponse->fetch())
 					{
-						echo "<option value=".$ligne['id_serviceE'].">".$ligne['nom_serviceE']."</option>";
+						if($ligne['active'] == '1') {
+							echo "<option value=".$ligne['id_serviceE'].">".$ligne['nom_serviceE']."</option>";
+						}
 					}
 					?>
 				</select>
@@ -27,7 +29,7 @@
 		</tr>
 		<tr>
 			<td><label for="destinataire">Destinataire : </label></td>
-			<td><input type="text" name ="destinataire" id="destinataire"></td>
+			<td><input type="text" name ="destinataire" id="destinataire" required></td>
 			<td>
 				<select name="serviceDest" id="serviceDest">
 					<?php
@@ -35,7 +37,9 @@
 					
 					while($ligne = $reponse->fetch())
 					{
-						echo "<option value=".$ligne['id_serviceD'].">".$ligne['nom_serviceD']."</option>";
+						if($ligne['active'] == '1') {
+							echo "<option value=".$ligne['id_serviceD'].">".$ligne['nom_serviceD']."</option>";
+						}
 					}
 					?>
 				</select>
@@ -55,7 +59,7 @@
 				while($ligne = $reponse->fetch()) 
 				{
 				?>
-					<p><input type="radio" name="nature" id="<?php echo $ligne['nom_nature'] ?>" plop="<?php echo $ligne['num_envoi'] ?>" value="<?php echo $ligne['id_nature'] ?>"><label for="<?php echo $ligne['nom_nature'] ?>"><?php echo $ligne['nom_nature'] ?></label></p>
+					<p><input type="radio" name="nature" id="<?php echo $ligne['nom_nature'] ?>" plop="<?php echo $ligne['num_envoi'] ?>" value="<?php echo $ligne['id_nature'] ?>" required><label for="<?php echo $ligne['nom_nature'] ?>"><?php echo $ligne['nom_nature'] ?></label></p>
 				<?php
 				}
 				?>

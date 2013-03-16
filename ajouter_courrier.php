@@ -5,7 +5,7 @@ include_once('include/bdd.php');
 extract($_POST);
 
 // recuperation des variables depuis l'ajax de formulaire_insertion.js
-if(empty($date) || empty($objet) || empty($observation) || empty($destinataire) || empty($expediteur) || empty($numNature)) {
+if(empty($date) || empty($objet) || empty($observation) || empty($destinataire) || empty($expediteur)) {
 	echo "Erreur : Le formulaire est incomplet";
 	header("refresh:2;url=inserer.php?page=".$type);
 }

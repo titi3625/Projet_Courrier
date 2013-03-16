@@ -1,8 +1,7 @@
 <div class="menu">
 
 	<?php
-	$path = $_SERVER['PHP_SELF'];
-	$file = basename($path);
+	$file = basename($_SERVER['PHP_SELF']);
 	switch($file) {
 	 	case 'index.php':
 	?>
@@ -23,16 +22,19 @@
 				</ul>
 			</dl>
 			<div class="separateur"></div>
-			<dl id="menu2">
-				<dt><a href="#">Gestion</a></dt>
-				<ul class="sousMenu2">
-					<li><a href="gestion.php?page=1">Types de courrier</a></li>
-					<li><a href="gestion.php?page=2">Services</a></li>
-					<li><a href="gestion.php?page=3">Utilisateurs</a></li>
-				</ul>
-			</dl>
-
-	<?php
+			<?php
+			if($_SESSION['auth'] == "yes" && $_SESSION['droit'] == 'admin') {
+			?>
+				<dl id="menu2">
+					<dt><a href="#">Gestion</a></dt>
+					<ul class="sousMenu2">
+						<li><a href="gestion.php?page=1">Types de courrier</a></li>
+						<li><a href="gestion.php?page=2">Services</a></li>
+						<li><a href="gestion.php?page=3">Utilisateurs</a></li>
+					</ul>
+				</dl>
+			<?php
+			}
 	 		break;
 		case 'recherche.php':
 	?>
@@ -53,16 +55,19 @@
 				</ul>
 			</dl>
 			<div class="separateur"></div>
-			<dl id="menu2">
-				<dt><a href="#">Gestion</a></dt>
-				<ul class="sousMenu2">
-					<li><a href="gestion.php?page=1">Types de courrier</a></li>
-					<li><a href="gestion.php?page=2">Services</a></li>
-					<li><a href="gestion.php?page=3">Utilisateurs</a></li>
-				</ul>
-			</dl>
-
-	<?php
+			<?php
+			if($_SESSION['auth'] == "yes" && $_SESSION['droit'] == 'admin') {
+			?>
+				<dl id="menu2">
+					<dt><a href="#">Gestion</a></dt>
+					<ul class="sousMenu2">
+						<li><a href="gestion.php?page=1">Types de courrier</a></li>
+						<li><a href="gestion.php?page=2">Services</a></li>
+						<li><a href="gestion.php?page=3">Utilisateurs</a></li>
+					</ul>
+				</dl>
+			<?php
+			}
 			break;
 		case 'inserer.php':
 	?>
@@ -83,15 +88,19 @@
 				</ul>
 			</dl>
 			<div class="separateur"></div>
-			<dl id="menu2">
-				<dt><a href="#">Gestion</a></dt>
-				<ul class="sousMenu2">
-					<li><a href="gestion.php?page=1">Types de courrier</a></li>
-					<li><a href="gestion.php?page=2">Services</a></li>
-					<li><a href="gestion.php?page=3">Utilisateurs</a></li>
-				</ul>
-			</dl>
-	<?php
+			<?php
+			if($_SESSION['auth'] == "yes" && $_SESSION['droit'] == 'admin') {
+			?>
+				<dl id="menu2">
+					<dt><a href="#">Gestion</a></dt>
+					<ul class="sousMenu2">
+						<li><a href="gestion.php?page=1">Types de courrier</a></li>
+						<li><a href="gestion.php?page=2">Services</a></li>
+						<li><a href="gestion.php?page=3">Utilisateurs</a></li>
+					</ul>
+				</dl>
+			<?php
+			}
 			break;
 		case 'gestion.php':
 	?>
@@ -112,15 +121,19 @@
 				</ul>
 			</dl>
 			<div class="separateur"></div>
-			<dl id="menu2">
-				<dt><a href="#" id="current">Gestion</a></dt>
-				<ul class="sousMenu2">
-					<li><a href="gestion.php?page=1">Types de courrier</a></li>
-					<li><a href="gestion.php?page=2">Services</a></li>
-					<li><a href="gestion.php?page=3">Utilisateurs</a></li>
-				</ul>
-			</dl>
-	<?php
+			<?php
+			if($_SESSION['auth'] == "yes" && $_SESSION['droit'] == 'admin') {
+			?>
+				<dl id="menu2">
+					<dt><a href="#" id="current">Gestion</a></dt>
+					<ul class="sousMenu2">
+						<li><a href="gestion.php?page=1">Types de courrier</a></li>
+						<li><a href="gestion.php?page=2">Services</a></li>
+						<li><a href="gestion.php?page=3">Utilisateurs</a></li>
+					</ul>
+				</dl>
+			<?php
+			}
 			break;
 		case 'erreur_acces.php':
 	?>
@@ -141,18 +154,22 @@
 				</ul>
 			</dl>
 			<div class="separateur"></div>
-			<dl id="menu2">
-				<dt><a href="#">Gestion</a></dt>
-				<ul class="sousMenu2">
-					<li><a href="gestion.php?page=1">Types de courrier</a></li>
-					<li><a href="gestion.php?page=2">Services</a></li>
-					<li><a href="gestion.php?page=3">Utilisateurs</a></li>
-				</ul>
-			</dl>
-	<?php
+			<?php
+			if($_SESSION['auth'] == "yes" && $_SESSION['droit'] == 'admin') {
+			?>
+				<dl id="menu2">
+					<dt><a href="#">Gestion</a></dt>
+					<ul class="sousMenu2">
+						<li><a href="gestion.php?page=1">Types de courrier</a></li>
+						<li><a href="gestion.php?page=2">Services</a></li>
+						<li><a href="gestion.php?page=3">Utilisateurs</a></li>
+					</ul>
+				</dl>
+			<?php
+			}
 	 	default:
 	 		break;
-	} 
+	}
 	?>
 	
 </div>

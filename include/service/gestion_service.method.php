@@ -18,7 +18,7 @@ if(isset($_POST)) {
 				}
 			
 				if($reponse > 0 && $reponse2 > 0) {
-					echo "<script> alert(\"Le type a été ajouté\"); </script>";
+					echo "<script> alert(\"Le service a été ajouté\"); </script>";
 					header("Location: gestion.php?page=2");
 				}
 				else {
@@ -29,9 +29,17 @@ if(isset($_POST)) {
 				break;
 			case 'modification':
 
+				if($active) {
+					$activePlop = '1';
+				}
+				else {
+					$activePlop = '0';
+				}
+
 				if(isset($id) && !empty($id)) {
-					$requete = "UPDATE service_destinataire SET nom_service = '".$nom."' WHERE id_serviceD = '".$id."';";
-					$requete2 = "UPDATE service_expediteur SET nom_service = '".$nom."' WHERE id_serviceE = '".$id."';";
+					$requete = "UPDATE service_destinataire SET nom_serviceD = '".$nom."', active = '".$activePlop."' WHERE id_serviceD = '".$id."';";
+					$requete2 = "UPDATE service_expediteur SET nom_serviceE = '".$nom."', active = '".$activePlop."' WHERE id_serviceE = '".$id."';";
+					
 					try {
 						$reponse = $bdd->exec($requete);
 						$reponse2 = $bdd->exec($requete2);
@@ -41,7 +49,7 @@ if(isset($_POST)) {
 					}
 					
 					if($reponse > 0 && $reponse2 > 0) {
-						echo "<script> alert(\"Le type a été modifié\"); </script>";
+						echo "<script> alert(\"Le service a été modifié\"); </script>";
 					}
 					else {
 						echo "<script> alert(\"Erreur dans la requête\"); </script>";

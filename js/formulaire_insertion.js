@@ -1,6 +1,6 @@
 $(function() {
 
-
+	// met le num d'envoi en required si le type de courrier en requiert un
 	$('#choixNature').change(function() {
 		value = $('input[name="nature"]:checked').attr('plop');
 		if(value == '0') {

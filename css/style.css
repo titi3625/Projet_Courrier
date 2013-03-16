@@ -24,7 +24,6 @@ a {
 }
 
 .user {
-	//display: inline-block;
 	width: 10%;
 	position: absolute;
 	right: 0px;
@@ -160,10 +159,10 @@ dl ul {
 
 /* Mise en forme du formulaire de connexion */
 .tableauConnexion {
-	width: 400px;
+	width: 270px;
 	height: 200px;
 	display: block;
-	margin: 0 auto;
+	margin: 15px auto 0 auto;
 }
 
 .tableauConnexion tr {
@@ -171,7 +170,7 @@ dl ul {
 }
 
 .tableauConnexion td {
-	padding: 20px;
+	padding: 5px;
 }
 
 .tableauConnexion input[type="text"], .tableauConnexion input[type="password"] {
@@ -258,6 +257,11 @@ dl ul {
 
 #numNature {
 	width: 130px;
+}
+
+.confirmInsert {
+	font-size: 20px;
+	color: green;
 }
 
 /*Mise en forme du formulaire d'insertion de type*/

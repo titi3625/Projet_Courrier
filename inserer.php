@@ -52,7 +52,9 @@ if($_SESSION['auth'] != "yes") {
 				}
 
 				if(isset($_GET['num'])) {
+					echo "<div class=\"confirmInsert\">";
 					echo "Le courrier n°".$_GET['num']." a été ajouté";
+					echo "</div>";
 				}
 				?>
 			</fieldset>
