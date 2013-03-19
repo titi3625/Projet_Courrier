@@ -48,8 +48,8 @@
 			<td><label for="type">Niveau de droit : </label></td>
 			<td>
 				<select name="droit" id="droit">
-					<option value="user">Troufion</option>
-					<option value="admin">Patron</option>
+					<option value="user">Utilisateur</option>
+					<option value="admin">Administrateur</option>
 				</select>
 			</td>
 		</tr>

@@ -58,7 +58,7 @@ session_start();
 			<?php
 			if(isset($_POST['login']) && isset($_POST['mdp'])) {
 				$login = @$_POST['login'];
-				$mdp = @$_POST['mdp'];
+				$mdp = md5(@$_POST['mdp']);
 	
 				if($login == null || $mdp == null) {
 					echo '<p align="center">Tout les champs doivent être remplis</p>';

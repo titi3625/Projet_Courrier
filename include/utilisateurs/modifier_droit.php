@@ -39,7 +39,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
 			//text-align: center;
 			padding: 5px;
 		}
-		input[type="text"] {
+		input[type="text"], input[type="password"] {
 			width: 200px;
 		}
 	</style>
@@ -66,8 +66,8 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
 					<td><input type="text" name="pseudo" id="pseudo" value="<?php echo $ligne['login_utilisateur'] ?>" pattern="[A-Za-z0-9._-\w]{1,20}" required></td>
 				</tr>
 				<tr>
-					<td><label for="nom">Mot de passe : </label></td>
-					<td><input type="text" name="mdp" id="mdp" value="<?php echo $ligne['mdp_utilisateur'] ?>" pattern="[A-Za-z0-9]{1,20}" required></td>
+					<td><label for="nom">Nouveau mot de passe : </label></td>
+					<td><input type="password" name="mdp" id="mdp" value="" pattern="[A-Za-z0-9]{1,20}" required></td>
 				</tr>
 				<tr>
 					<td><label for="nom">Droit : </label></td>

@@ -46,13 +46,13 @@
 	if($service != null) {
 		$sql .= ' AND (service_expediteur.nom_serviceE LIKE "%'.$service.'%" OR service_destinataire.nom_serviceD LIKE "%'.$service.'%")';
 	}
-
 	if($date_debut != null && $date_fin != null) {
 		$sql .= " AND date_courrier BETWEEN '".$date_debut."' AND '".$date_fin."'";
 	}
-		
 	$sql .= ' GROUP BY id_courrier;';
-	echo $sql;
+
+	//echo $sql;
+
 	$reponse = $bdd->query($sql);
 	?>
 	<table>
