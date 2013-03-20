@@ -13,12 +13,19 @@ if(isset($_POST)) {
 			$num = '0';
 		}
 
+		if($active) {
+			$active = '1';
+		}
+		else {
+			$active = '2';
+		}
+
 		// selon la variable $action on appelle la fonction correspondante
 		switch ($action) {
 			
 			case 'insertion':
 				try {
-					$reponse = $bdd->query("INSERT INTO nature VALUES('', '".$nom."', '".$num."');");
+					$reponse = $bdd->query("INSERT INTO nature VALUES('', '".$nom."', '".$num."', '1');");
 				}
 				catch(PDOException $e) {
 					die('Erreur : '.$e->getMessage());
@@ -37,7 +44,7 @@ if(isset($_POST)) {
 
 			case 'modification':
 				if(isset($id) && !empty($id)) {
-					$requete = "UPDATE nature SET nom_nature = '".$nom."', num_envoi = '".$num."' WHERE id_nature = '".$id."';";
+					$requete = "UPDATE nature SET nom_nature = '".$nom."', num_envoi = '".$num."', active = '".$active."' WHERE id_nature = '".$id."';";
 					try {
 						$reponse = $bdd->exec($requete);
 					}

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Sam 16 Mars 2013 à 15:55
+-- Généré le : Mar 19 Mars 2013 à 11:55
 -- Version du serveur: 5.5.29
 -- Version de PHP: 5.3.10-1ubuntu3.6
 
@@ -129,6 +129,29 @@ INSERT INTO `expediteur` (`id_expediteur`, `nom_expediteur`, `id_service`) VALUE
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `histo_courrier`
+--
+
+CREATE TABLE IF NOT EXISTS `histo_courrier` (
+  `id_courrier` int(11) NOT NULL,
+  `login_utilisateur` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `histo_courrier`
+--
+
+INSERT INTO `histo_courrier` (`id_courrier`, `login_utilisateur`) VALUES
+(2, ''),
+(3, ''),
+(1, 'bart'),
+(4, 'bart'),
+(7, 'bart'),
+(3, 'admin');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `nature`
 --
 
@@ -239,8 +262,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`id_utilisateur`, `nom_utilisateur`, `prenom_utilisateur`, `login_utilisateur`, `mdp_utilisateur`, `droit_utilisateur`) VALUES
-(1, 'Simpson', 'Homer', 'admin', 'admin', 'admin'),
-(2, 'Simpson', 'Bart', 'bart', 'bart', 'user');
+(1, 'Simpson', 'Homer', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
+(2, 'Simpson', 'Bart', 'bart', 'f54146a3fc82ab17e5265695b23f646b', 'user');
 
 --
 -- Contraintes pour les tables exportées

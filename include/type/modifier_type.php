@@ -67,6 +67,20 @@ if(isset($_GET['id']) && !empty($_GET['id']) && isset($_GET['nom']) && !empty($_
 				?>
 					
 				</tr>
+				<tr>
+				<?php
+				if($active == '1') {
+				?>
+					<td colspan="2" align="2"><input type="checkbox" id="active" name="active" checked><label for="active">Actif</label></td>
+				<?php
+				}
+				else {
+				?>
+					<td colspan="2" align="2"><input type="checkbox" id="active" name="active"><label for="active">Actif</label></td>
+				<?php
+				}
+				?>	
+				</tr>
 				<tr><td colspan="2"><input type="submit" value="Modifier" name="valider"></td></tr>
 			</table>
 			<input type="hidden" name="action" id="action" value="modification">

@@ -65,6 +65,11 @@
 			<th>Type</th>
 			<th>Expediteur</th>
 			<th>Destinataire</th>
+			<th>
+				<form action="">
+					<input type="submit" value="Résultats en PDF">
+				</form>
+			</th>
 		</tr>
 		<?php
 		while($ligne = $reponse->fetch())

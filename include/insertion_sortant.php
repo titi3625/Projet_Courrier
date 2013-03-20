@@ -57,10 +57,12 @@
 				$reponse = $bdd->query('SELECT * FROM nature');
 				while($ligne = $reponse->fetch())
 				{
-				?>
+					if($ligne['active'] == '1')
+					{
+					?>
 					<p><input type="radio" name="nature" id="<?php echo $ligne['nom_nature'] ?>" plop="<?php echo $ligne['num_envoi'] ?>" value="<?php echo $ligne['id_nature'] ?>" required><label for="<?php echo $ligne['nom_nature'] ?>"><?php echo $ligne['nom_nature'] ?></label></p>
-
-				<?php
+					<?php
+					}
 				}
 				?>
 			</td>

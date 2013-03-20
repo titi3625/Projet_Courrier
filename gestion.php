@@ -44,6 +44,9 @@ if($_SESSION['auth'] != "yes" || $_SESSION['droit'] != "admin") {
 						case '3':
 								include('include/utilisateurs/gestion_droit.php');				
 							break;
+						case '4':
+								include('include/backupRestore.php');				
+							break;	
 						default:
 							echo "Erreur de redirection ! (onch onch)";
 							break;
