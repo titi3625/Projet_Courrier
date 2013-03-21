@@ -75,9 +75,8 @@ if($_SESSION['auth'] != "yes") {
 			</fieldset>
 
 			<div class="resultat">
-
+				
 			</div>
-			
 		</div>
 	</div>
 	

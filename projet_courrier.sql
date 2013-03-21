@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Mar 19 Mars 2013 à 11:55
+-- Généré le : Jeu 21 Mars 2013 à 13:46
 -- Version du serveur: 5.5.29
 -- Version de PHP: 5.3.10-1ubuntu3.6
 
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `courrier` (
   KEY `id_type` (`id_type`),
   KEY `id_expediteur` (`id_expediteur`),
   KEY `id_destinataire` (`id_destinataire`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Contenu de la table `courrier`
@@ -71,7 +71,9 @@ INSERT INTO `courrier` (`id_courrier`, `objet_courrier`, `date_courrier`, `obser
 (4, 'Plop', '2013-03-05', 'ça pique', 0, 2, 'dfgsdfgsdgs', 1, 4, 4),
 (5, 'jhgfdcs', '2013-03-06', 'salut', 0, 1, '', 1, 5, 5),
 (6, 'Plop', '2013-03-12', 'ça pique', 0, 1, '', 2, 6, 6),
-(7, 'Plop', '2013-03-06', 'ça pique', 0, 1, '', 1, 4, 7);
+(7, 'Plop', '2013-03-06', 'ça pique', 0, 1, '', 1, 4, 7),
+(8, 'Plop', '2013-03-19', 'salut', 0, 1, '', 1, 5, 8),
+(9, 'hgfd', '2013-03-19', '', 0, 1, '', 1, 5, 9);
 
 -- --------------------------------------------------------
 
@@ -85,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `destinataire` (
   `id_service` int(11) NOT NULL,
   PRIMARY KEY (`id_destinataire`),
   KEY `service` (`id_service`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
 -- Contenu de la table `destinataire`
@@ -98,7 +100,9 @@ INSERT INTO `destinataire` (`id_destinataire`, `nom_destinataire`, `id_service`)
 (4, 'Maurice', 4),
 (5, 'Casimir', 5),
 (6, 'Maurice', 6),
-(7, 'Simpson', 1);
+(7, 'Simpson', 1),
+(8, 'Maurice', 1),
+(9, 'Casimir', 1);
 
 -- --------------------------------------------------------
 
@@ -147,7 +151,8 @@ INSERT INTO `histo_courrier` (`id_courrier`, `login_utilisateur`) VALUES
 (1, 'bart'),
 (4, 'bart'),
 (7, 'bart'),
-(3, 'admin');
+(3, 'admin'),
+(1, 'admin');
 
 -- --------------------------------------------------------
 
@@ -159,6 +164,7 @@ CREATE TABLE IF NOT EXISTS `nature` (
   `id_nature` int(11) NOT NULL AUTO_INCREMENT,
   `nom_nature` varchar(60) NOT NULL,
   `num_envoi` tinyint(1) NOT NULL,
+  `active` tinyint(1) NOT NULL,
   PRIMARY KEY (`id_nature`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
@@ -166,10 +172,10 @@ CREATE TABLE IF NOT EXISTS `nature` (
 -- Contenu de la table `nature`
 --
 
-INSERT INTO `nature` (`id_nature`, `nom_nature`, `num_envoi`) VALUES
-(1, 'Lettre Simple', 0),
-(2, 'Recommandé', 1),
-(3, 'Colis', 1);
+INSERT INTO `nature` (`id_nature`, `nom_nature`, `num_envoi`, `active`) VALUES
+(1, 'Lettre Simple', 0, 1),
+(2, 'Recommandé', 1, 2),
+(3, 'Colis', 1, 1);
 
 -- --------------------------------------------------------
 

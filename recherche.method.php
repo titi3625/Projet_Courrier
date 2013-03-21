@@ -2,6 +2,14 @@
 <html>
 <head>
 	<meta charset="UTF-8">
+
+	<script>
+		$('.imprimRecherche').on("click", function() {
+			$('.header').hide();
+			window.print();
+			$('.header').show();
+		});
+	</script>
 </head>
 <body>
 	<?php
@@ -54,6 +62,7 @@
 	//echo $sql;
 
 	$reponse = $bdd->query($sql);
+
 	?>
 	<table>
 		<tr>
@@ -66,9 +75,9 @@
 			<th>Expediteur</th>
 			<th>Destinataire</th>
 			<th>
-				<form action="">
-					<input type="submit" value="Résultats en PDF">
-				</form>
+				<a href="#" class="imprimRecherche">Imprimer</a>
+
+				
 			</th>
 		</tr>
 		<?php

@@ -61,4 +61,11 @@ $(function() {
 		// efface les resultats de recherche
 		$('.resultat').hide();
 	});
+
+
+	// fonction qui permet d'imprimer les resultats de recherche
+	// $('.imprimRecherche').on("click", function() {
+	// 	alert("plop");
+	// });
+
 });
