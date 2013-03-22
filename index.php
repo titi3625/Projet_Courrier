@@ -27,7 +27,9 @@ session_start();
 		</div>
 	</div>
 		
-
+	<div class="logo">
+		<img src="image/logo.png" alt="Logo EPMS">
+	</div>
 	
 	<div class="content">
 		<h2><p align="center">Bienvenue sur le gestionnaire de courrier de l'EMPS</p></h2>

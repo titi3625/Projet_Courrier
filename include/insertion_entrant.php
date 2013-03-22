@@ -3,7 +3,7 @@
 	<table>
 		<tr>
 			<td><label for="date">Date : </label></td>
-			<td><input type="text" name="date" id="date" class="datepicker"></td>
+			<td><input type="text" name="date" id="date" class="datepicker" required></td>
 		</tr>
 		<tr>
 			<td><label for="objet">Objet : </label></td>

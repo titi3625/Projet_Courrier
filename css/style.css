@@ -154,7 +154,7 @@ dl ul {
 }
 
 #radio label {
-	width: 136px;
+	width: 145px;
 }
 
 /* Mise en forme du formulaire de connexion */
@@ -182,6 +182,13 @@ dl ul {
 	border-radius: 3px;
 }
 
+.logo img {
+	width: 10%;
+	height: 10%;
+	float: left;
+	margin: 55px 0px 0px 35px;
+}
+
 /* Mise en forme du "formulaire" de recherche */
 
 .divRecherche fieldset table {
@@ -197,6 +204,10 @@ dl ul {
 	border-radius: 10px;
 	border: 2px solid #EEEEEE;
 	margin-bottom: 20px;
+}
+
+.content fieldset legend {
+	font-size: 18px;
 }
 
 /*Mise en forme du resultat de recherche*/
@@ -279,6 +290,12 @@ dl ul {
 	text-align: center;
 	border: 1px solid #6E6D71;
 	padding: 5px;
+}
+
+hr {
+	color: #6E6D71;
+	width: 400px;
+	margin-top: 10px;
 }
 
 

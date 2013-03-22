@@ -55,19 +55,19 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
 				</tr>
 				<tr>
 					<td><label for="nom">Nom : </label></td>
-					<td><input type="text" name="nom" id="nom" value="<?php echo $ligne['nom_utilisateur'] ?>" pattern="[A-Za-z._-\w]{1,20}" required></td>
+					<td><input type="text" name="nom" id="nom" value="<?php echo $ligne['nom_utilisateur'] ?>" required></td>
 				</tr>
 				<tr>
 					<td><label for="nom">Prénom : </label></td>
-					<td><input type="text" name="prenom" id="prenom" value="<?php echo $ligne['prenom_utilisateur'] ?>" pattern="[A-Za-z._-\w]{1,20}" required></td>
+					<td><input type="text" name="prenom" id="prenom" value="<?php echo $ligne['prenom_utilisateur'] ?>" required></td>
 				</tr>
 				<tr>
 					<td><label for="nom">Pseudo : </label></td>
-					<td><input type="text" name="pseudo" id="pseudo" value="<?php echo $ligne['login_utilisateur'] ?>" pattern="[A-Za-z0-9._-\w]{1,20}" required></td>
+					<td><input type="text" name="pseudo" id="pseudo" value="<?php echo $ligne['login_utilisateur'] ?>" required></td>
 				</tr>
 				<tr>
 					<td><label for="nom">Nouveau mot de passe : </label></td>
-					<td><input type="password" name="mdp" id="mdp" value="" pattern="[A-Za-z0-9]{1,20}" required></td>
+					<td><input type="password" name="mdp" id="mdp" value="" pattern="[A-Za-z0-9]{1,20}"></td>
 				</tr>
 				<tr>
 					<td><label for="nom">Droit : </label></td>
@@ -101,5 +101,8 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
 		</form>
 	</fieldset>
 	
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery-ui-1.10.1.custom.min.js"></script>
+	<script src="js/interface.js"></script>
 </body>
 </html>

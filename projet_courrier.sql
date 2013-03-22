@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Jeu 21 Mars 2013 à 13:46
+-- Généré le : Ven 22 Mars 2013 à 09:41
 -- Version du serveur: 5.5.29
 -- Version de PHP: 5.3.10-1ubuntu3.6
 
@@ -173,8 +173,8 @@ CREATE TABLE IF NOT EXISTS `nature` (
 --
 
 INSERT INTO `nature` (`id_nature`, `nom_nature`, `num_envoi`, `active`) VALUES
-(1, 'Lettre Simple', 0, 1),
-(2, 'Recommandé', 1, 2),
+(1, 'Lettre simple546', 0, 1),
+(2, 'Recommandé', 1, 1),
 (3, 'Colis', 1, 1);
 
 -- --------------------------------------------------------
@@ -269,7 +269,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 
 INSERT INTO `utilisateur` (`id_utilisateur`, `nom_utilisateur`, `prenom_utilisateur`, `login_utilisateur`, `mdp_utilisateur`, `droit_utilisateur`) VALUES
 (1, 'Simpson', 'Homer', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
-(2, 'Simpson', 'Bart', 'bart', 'f54146a3fc82ab17e5265695b23f646b', 'user');
+(2, 'Simpson', 'Bart', 'bart', '7cad999ac7b4a5e118d8e8970f30f5f3', 'user');
 
 --
 -- Contraintes pour les tables exportées

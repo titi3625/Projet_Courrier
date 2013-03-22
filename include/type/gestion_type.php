@@ -30,7 +30,7 @@
 	}
 	?>
 </table>
-
+<hr>
 <form action="include/type/gestion_type.method.php" method="post" id="insererType">
 	<table>
 		<tr>

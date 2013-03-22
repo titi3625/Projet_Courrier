@@ -3,6 +3,7 @@ include('../bdd.php');
 
 // on verifie que les variables du formulaire sont bien arrivé
 if(isset($_POST)) {
+	addslashes($_POST);
 	extract($_POST);
 	if(isset($nom) && !empty($nom) && isset($action) && !empty($action)) {
 
@@ -52,12 +53,7 @@ if(isset($_POST)) {
 						die('Erreur : '.$e->getMessage());
 					}
 					
-					if($reponse > 0) {
-						echo "<script> alert(\"Le type a été modifié\"); </script>";
-					}
-					else {
-						echo "<script> alert(\"Erreur dans la requête\"); </script>";
-					}
+					echo "<script> alert(\"Le type a été modifié\"); </script>";
 				}
 
 				break;

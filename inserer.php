@@ -29,7 +29,10 @@ if($_SESSION['auth'] != "yes") {
 		</div>
 	</div>
 	
-
+	<div class="logo">
+		<img src="image/logo.png" alt="Logo EPMS">
+	</div>
+	
 	<div class="content">
 		<div class="inserer" align="center">
 

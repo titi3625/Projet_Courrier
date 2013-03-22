@@ -49,7 +49,7 @@ if(isset($_GET['id']) && !empty($_GET['id']) && isset($_GET['nom']) && !empty($_
 				</tr>
 				<tr>
 					<td><label for="nom">Nom : </label></td>
-					<td><input type="text" name="nom" id="nom" value="<?php echo $nom; ?>" pattern="[A-Za-z._-\w]{1,20}" required></td>
+					<td><input type="text" name="nom" id="nom" value="<?php echo $nom; ?>" required></td>
 				</tr>
 				<tr>
 				<?php
@@ -72,5 +72,8 @@ if(isset($_GET['id']) && !empty($_GET['id']) && isset($_GET['nom']) && !empty($_
 		</form>
 	</fieldset>
 	
+	<script src="js/jquery-1.9.1.min.js"></script>
+	<script src="js/jquery-ui-1.10.1.custom.min.js"></script>
+	<script src="js/interface.js"></script>
 </body>
 </html>

@@ -3,6 +3,7 @@ include('../bdd.php');
 
 // on verifie que les variables du formulaire sont bien arrivé
 if(isset($_POST)) {
+	addslashes($_POST);
 	extract($_POST);
 	if(isset($nom) && !empty($nom) && isset($action) && !empty($action)) {
 		
@@ -47,13 +48,9 @@ if(isset($_POST)) {
 					catch(PDOException $e) {
 						die('Erreur : '.$e->getMessage());
 					}
-					
-					if($reponse > 0 && $reponse2 > 0) {
-						echo "<script> alert(\"Le service a été modifié\"); </script>";
-					}
-					else {
-						echo "<script> alert(\"Erreur dans la requête\"); </script>";
-					}
+
+					echo "<script> alert(\"Le service a été modifié\"); </script>";
+				
 				}
 
 				break;

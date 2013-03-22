@@ -30,13 +30,13 @@
 	}
 	?>
 </table>
-
+<hr>
 <form action="gestion_service.method.php" method="post" id="insererType">
 	<table>
 		<tr>
 			<td><label for="type">Nouveau service : </label></td>
 			<td>
-				<input type="text" name="nom" id="nom" pattern="[A-Za-z._-\w]{2,20}" required>
+				<input type="text" name="nom" id="nom" required>
 				<input type="hidden" name="action" id="action" value="insertion">
 			</td>
 		</tr>

@@ -3,15 +3,15 @@
 	<table>
 		<tr>
 			<td><label for="date">Date : </label></td>
-			<td><input type="text" name="date" id="date" class="datepicker"></td>
+			<td><input type="text" name="date" id="date" class="datepicker" required></td>
 		</tr>
 		<tr>
 			<td><label for="objet">Objet : </label></td>
-			<td><input type="text" name="objet" id="objet"></td>
+			<td><input type="text" name="objet" id="objet" required></td>
 		</tr>
 		<tr>
 			<td><label for="expediteur">Expéditeur : </label></td>
-			<td><input type="text" name="expediteur" id="expediteur"></td>
+			<td><input type="text" name="expediteur" id="expediteur" required></td>
 			<td>
 				<select name="serviceExpe" id="serviceExpe">
 					<?php
@@ -30,7 +30,7 @@
 		</tr>
 		<tr>
 			<td><label for="destinataire">Destinataire : </label></td>
-			<td><input type="text" name ="destinataire" id="destinataire"></td>
+			<td><input type="text" name ="destinataire" id="destinataire" required></td>
 			<td>
 				<select name="serviceDest" id="serviceDest">
 					<?php

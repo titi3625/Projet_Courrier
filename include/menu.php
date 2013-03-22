@@ -23,7 +23,7 @@
 			</dl>
 			<div class="separateur"></div>
 			<?php
-			if($_SESSION['auth'] == "yes" && $_SESSION['droit'] == 'admin') {
+			if(@$_SESSION['auth'] == "yes" && @$_SESSION['droit'] == 'admin') {
 			?>
 				<dl id="menu2">
 					<dt><a href="#">Gestion</a></dt>
@@ -56,7 +56,7 @@
 			</dl>
 			<div class="separateur"></div>
 			<?php
-			if($_SESSION['auth'] == "yes" && $_SESSION['droit'] == 'admin') {
+			if(@$_SESSION['auth'] == "yes" && @$_SESSION['droit'] == 'admin') {
 			?>
 				<dl id="menu2">
 					<dt><a href="#">Gestion</a></dt>
@@ -89,7 +89,7 @@
 			</dl>
 			<div class="separateur"></div>
 			<?php
-			if($_SESSION['auth'] == "yes" && $_SESSION['droit'] == 'admin') {
+			if(@$_SESSION['auth'] == "yes" && @$_SESSION['droit'] == 'admin') {
 			?>
 				<dl id="menu2">
 					<dt><a href="#">Gestion</a></dt>
@@ -122,7 +122,7 @@
 			</dl>
 			<div class="separateur"></div>
 			<?php
-			if($_SESSION['auth'] == "yes" && $_SESSION['droit'] == 'admin') {
+			if(@$_SESSION['auth'] == "yes" && @$_SESSION['droit'] == 'admin') {
 			?>
 				<dl id="menu2">
 					<dt><a href="#" id="current">Gestion</a></dt>
@@ -155,7 +155,7 @@
 			</dl>
 			<div class="separateur"></div>
 			<?php
-			if($_SESSION['auth'] == "yes" && $_SESSION['droit'] == 'admin') {
+			if(@$_SESSION['auth'] == "yes" && @$_SESSION['droit'] == 'admin') {
 			?>
 				<dl id="menu2">
 					<dt><a href="#">Gestion</a></dt>

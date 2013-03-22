@@ -3,6 +3,7 @@ require('../bdd.php');
 
 if(isset($_GET)) {
 	if(isset($_GET['id'])) {
+		addslashes($_GET);
 		extract($_GET);
 	}
 }

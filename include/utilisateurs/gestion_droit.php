@@ -22,27 +22,27 @@
 	}
 	?>
 </table>
-
+<hr>
 <form action="include/utilisateurs/gestion_droit.method.php" method="post" id="insererType">
 	<table>
 		<tr>
 			<td><label for="type">Nom : </label></td>
 			<td>
-				<input type="text" name="nom" id="nom" pattern="[A-Za-z._-\w]{1,20}" required>
+				<input type="text" name="nom" id="nom" required>
 				<input type="hidden" name="action" id="action" value="insertion">
 			</td>
 		</tr>
 		<tr>
 			<td><label for="type">Prenom : </label></td>
-			<td><input type="text" name="prenom" id="prenom" pattern="[A-Za-z._-\w]{1,20}" required></td>
+			<td><input type="text" name="prenom" id="prenom" required></td>
 		</tr>
 		<tr>
 			<td><label for="type">Nom d'utilisateur : </label></td>
-			<td><input type="text" name="login" id="login" pattern="[A-Za-z._-\w]{1,20}" required></td>
+			<td><input type="text" name="login" id="login" required></td>
 		</tr>
 		<tr>
 			<td><label for="type">Mot de passe : </label></td>
-			<td><input type="password" name="mdp" id="mdp" pattern="[A-Za-z._-\w]{1,20}" required></td>
+			<td><input type="password" name="mdp" id="mdp"  required></td>
 		</tr>
 		<tr>
 			<td><label for="type">Niveau de droit : </label></td>
