@@ -31,6 +31,7 @@
 	?>
 </table>
 <hr>
+<h2>Ajouter un type</h2>
 <form action="include/type/gestion_type.method.php" method="post" id="insererType">
 	<table>
 		<tr>

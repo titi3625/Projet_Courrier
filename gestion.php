@@ -48,7 +48,7 @@ if($_SESSION['auth'] != "yes" || $_SESSION['droit'] != "admin") {
 								include('include/utilisateurs/gestion_droit.php');				
 							break;
 						case '4':
-								include('include/backupRestore.php');				
+								include('include/historique/gestion_modif.php');				
 							break;	
 						default:
 							echo "Erreur de redirection ! (onch onch)";
@@ -70,6 +70,7 @@ if($_SESSION['auth'] != "yes" || $_SESSION['droit'] != "admin") {
 	<script src="js/jquery-ui-1.10.1.custom.min.js"></script>
 	<script src="js/interface.js"></script>
 	<script src="js/formulaire_insertion.js"></script>
+	<script src="js/recherche_accuse.js"></script>
 
 </body>
 </html>

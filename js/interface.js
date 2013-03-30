@@ -1,4 +1,5 @@
 $(function() {
+
 	// appel des fonction necessaire au jqueryUI
 	
 	// jqueryUI pour le bouton et le submit
@@ -16,4 +17,5 @@ $(function() {
 		monthNames: [ "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre" ]
 	
 	});
+
 });

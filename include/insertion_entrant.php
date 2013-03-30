@@ -79,4 +79,5 @@
 			</td>
 		</tr>
 	</table>
+	<a href="">Imprimer les courriers arrivés du jour</a>
 </form>

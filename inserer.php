@@ -6,7 +6,7 @@ if($_SESSION['auth'] != "yes") {
 }
 ?>
 <!doctype html>
-<html lang="fr">
+<html lang="FR-fr">
 <head>
 	<meta charset="UTF-8">
 	<title>Insertion courrier</title>
@@ -48,6 +48,10 @@ if($_SESSION['auth'] != "yes") {
 							include('include/insertion_sortant.php');
 							break;
 						
+						case '3':
+							include('include/insertion_accuse.php');
+							break;
+							
 						default:
 							echo "Erreur de redirection ! (onch onch)";
 							break;

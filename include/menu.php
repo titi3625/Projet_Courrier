@@ -19,6 +19,7 @@
 				<ul class="sousMenu1">
 					<li><a href="inserer.php?page=1">Courrier arrivé</a></li>
 					<li><a href="inserer.php?page=2">Courrier départ</a></li>
+					<li><a href="inserer.php?page=3">Accuse de reception</a></li>
 				</ul>
 			</dl>
 			<div class="separateur"></div>
@@ -31,6 +32,7 @@
 						<li><a href="gestion.php?page=1">Types de courrier</a></li>
 						<li><a href="gestion.php?page=2">Services</a></li>
 						<li><a href="gestion.php?page=3">Utilisateurs</a></li>
+						<li><a href="gestion.php?page=4">Historique</a></li>
 					</ul>
 				</dl>
 			<?php
@@ -52,6 +54,7 @@
 				<ul class="sousMenu1">
 					<li><a href="inserer.php?page=1">Courrier arrivé</a></li>
 					<li><a href="inserer.php?page=2">Courrier départ</a></li>
+					<li><a href="inserer.php?page=3">Accuse de reception</a></li>
 				</ul>
 			</dl>
 			<div class="separateur"></div>
@@ -64,6 +67,7 @@
 						<li><a href="gestion.php?page=1">Types de courrier</a></li>
 						<li><a href="gestion.php?page=2">Services</a></li>
 						<li><a href="gestion.php?page=3">Utilisateurs</a></li>
+						<li><a href="gestion.php?page=4">Historique</a></li>
 					</ul>
 				</dl>
 			<?php
@@ -85,6 +89,7 @@
 				<ul class="sousMenu1">
 					<li><a href="inserer.php?page=1">Courrier arrivé</a></li>
 					<li><a href="inserer.php?page=2">Courrier départ</a></li>
+					<li><a href="inserer.php?page=3">Accuse de reception</a></li>
 				</ul>
 			</dl>
 			<div class="separateur"></div>
@@ -97,6 +102,7 @@
 						<li><a href="gestion.php?page=1">Types de courrier</a></li>
 						<li><a href="gestion.php?page=2">Services</a></li>
 						<li><a href="gestion.php?page=3">Utilisateurs</a></li>
+						<li><a href="gestion.php?page=4">Historique</a></li>
 					</ul>
 				</dl>
 			<?php
@@ -118,6 +124,7 @@
 				<ul class="sousMenu1">
 					<li><a href="inserer.php?page=1">Courrier arrivé</a></li>
 					<li><a href="inserer.php?page=2">Courrier départ</a></li>
+					<li><a href="inserer.php?page=3">Accuse de reception</a></li>
 				</ul>
 			</dl>
 			<div class="separateur"></div>
@@ -130,6 +137,7 @@
 						<li><a href="gestion.php?page=1">Types de courrier</a></li>
 						<li><a href="gestion.php?page=2">Services</a></li>
 						<li><a href="gestion.php?page=3">Utilisateurs</a></li>
+						<li><a href="gestion.php?page=4">Historique</a></li>
 					</ul>
 				</dl>
 			<?php
@@ -151,6 +159,7 @@
 				<ul class="sousMenu1">
 					<li><a href="inserer.php?page=1">Courrier arrivé</a></li>
 					<li><a href="inserer.php?page=2">Courrier départ</a></li>
+					<li><a href="inserer.php?page=3">Accuse de reception</a></li>
 				</ul>
 			</dl>
 			<div class="separateur"></div>
@@ -163,6 +172,7 @@
 						<li><a href="gestion.php?page=1">Types de courrier</a></li>
 						<li><a href="gestion.php?page=2">Services</a></li>
 						<li><a href="gestion.php?page=3">Utilisateurs</a></li>
+						<li><a href="gestion.php?page=4">Historique</a></li>
 					</ul>
 				</dl>
 			<?php

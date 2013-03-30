@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Ven 22 Mars 2013 à 09:41
+-- Généré le : Mar 26 Mars 2013 à 10:41
 -- Version du serveur: 5.5.29
 -- Version de PHP: 5.3.10-1ubuntu3.6
 
@@ -173,7 +173,7 @@ CREATE TABLE IF NOT EXISTS `nature` (
 --
 
 INSERT INTO `nature` (`id_nature`, `nom_nature`, `num_envoi`, `active`) VALUES
-(1, 'Lettre simple546', 0, 1),
+(1, 'Lettre simple', 0, 1),
 (2, 'Recommandé', 1, 1),
 (3, 'Colis', 1, 1);
 

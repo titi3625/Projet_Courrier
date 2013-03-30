@@ -108,11 +108,11 @@ dl ul {
 }
 
 .sousMenu1 {
-	height: 50px;
+	height: 75px;
 }
 
 .sousMenu2 {
-	height: 75px;
+	height: 100px;
 }
 
 .sousMenu1 li , .sousMenu2 li {
@@ -310,4 +310,18 @@ hr {
 	right: 0;
 	text-align: center;
 	z-index: 3;
+}
+
+/*Mise en forme du formulaire de recherche d'historique*/
+.resultat_modif table {
+	border-collapse: collapse;
+	margin-top: 15px;
+}
+
+.resultat_modif table tr td, .resultat_modif table tr th {
+	//height: 15px;
+	//width: auto;
+	text-align: center;
+	border: 1px solid #6E6D71;
+	border-collapse: collapse;
 }

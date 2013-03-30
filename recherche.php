@@ -4,6 +4,7 @@ if($_SESSION['auth'] != "yes") {
 	echo "<script> alert('Vous n'avez pas accès à cette page'); </script>";
 	header('Location:index.php');
 }
+include('include/bdd.php');
 ?>
 <!doctype html>
 <html lang="fr">
@@ -37,9 +38,9 @@ if($_SESSION['auth'] != "yes") {
 					<tr>
 						<th colspan="2">
 							<div id="radio">
-								<input type="radio" name="statut" id="lesdeux" checked> <label for="lesdeux">Les deux</label>
 								<input type="radio" name="statut" id="entrant"> <label for="entrant">Courrier entrant</label>
 								<input type="radio" name="statut" id="sortant"> <label for="sortant">Courrier sortant</label>
+								<input type="radio" name="statut" id="lesdeux" checked> <label for="lesdeux">Les deux</label>
 							</div>
 						</th>
 					</tr>
@@ -61,7 +62,21 @@ if($_SESSION['auth'] != "yes") {
 					</tr>
 					<tr>
 						<td align="left"><label for="rechercheService">Recherche par service : </label></td>
-						<td align="left"><input type="text" name="rechercheService" id="rechercheService"/></td>	
+						<td align="left">
+							<select name="rechercheService" id="rechercheService">
+								<?php
+								$reponse = $bdd->query('SELECT * FROM service_expediteur');
+								echo "<option value=\"\"></option>";
+								while($ligne = $reponse->fetch())
+								{
+									if($ligne['active'] == '1') {
+										echo "<option value=".$ligne['nom_serviceE'].">".$ligne['nom_serviceE']."</option>";
+									}
+									
+								}
+								?>
+							</select>
+						</td>
 					</tr>
 					<tr>
 						<td><label for="rechercheDate">Recherche par date du : </label></td>

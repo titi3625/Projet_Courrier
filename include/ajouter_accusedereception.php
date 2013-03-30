@@ -1,5 +1,5 @@
 <?php
-require('bdd.php');
+require('include/bdd.php');
 
 if(isset($_POST)) {
 	extract($_POST);
@@ -15,8 +15,9 @@ if(isset($_POST)) {
 			echo "Accusé de reception ajouté";
 		}
 		else {
-			echo "Probleme de base de données";
+			echo "Problème de base de données";
 		}
+		header("refresh:2;url=inserer.php?page=3");
 	}
 }
 else {

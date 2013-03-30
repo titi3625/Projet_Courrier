@@ -23,6 +23,7 @@
 	?>
 </table>
 <hr>
+<h2>Ajouter un utilisateur</h2>
 <form action="include/utilisateurs/gestion_droit.method.php" method="post" id="insererType">
 	<table>
 		<tr>

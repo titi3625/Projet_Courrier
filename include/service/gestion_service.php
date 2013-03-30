@@ -31,6 +31,7 @@
 	?>
 </table>
 <hr>
+<h2>Ajouter un service</h2>
 <form action="gestion_service.method.php" method="post" id="insererType">
 	<table>
 		<tr>
