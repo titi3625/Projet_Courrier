@@ -49,8 +49,7 @@ if(isset($_POST)) {
 						die('Erreur : '.$e->getMessage());
 					}
 
-					echo "<script> alert(\"Le service a été modifié\"); </script>";
-				
+					echo "<script> alert(\"Le service a été modifié\"); window.close(); </script>";
 				}
 
 				break;

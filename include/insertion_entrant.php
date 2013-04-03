@@ -79,5 +79,5 @@
 			</td>
 		</tr>
 	</table>
-	<a href="">Imprimer les courriers arrivés du jour</a>
+	<a href="print_arrive.php">Imprimer les courriers arrivés du jour</a>
 </form>

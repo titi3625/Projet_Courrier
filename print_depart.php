@@ -1,8 +1,5 @@
 <?php
-// activation des variables de sessions
-
 session_start();
-
 include('include/bdd.php');
 $date = date('d-m-Y');
 
@@ -10,14 +7,13 @@ function dateFR() {
 	setlocale( LC_TIME, "fr_FR.utf8" );
 	return strftime("%A %d %B %Y", time());
 }
-
 ?>
 
 <!doctype html>
-<html lang="fr_FR">
+<html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Courrier arrivé</title>
+	<title>Courrier départ</title>
 	<style type="text/css" media="all">
 		body {
 			width: 900px;
@@ -42,7 +38,7 @@ function dateFR() {
 		}
 		
 		.titre2 {
-				
+			
 		}
 		
 		.titre2 {
@@ -76,7 +72,6 @@ function dateFR() {
 		.corp table {
 			width: 900px;
 			border-collapse: collapse;
-
 		}
 
 		.corp table th {
@@ -96,7 +91,7 @@ function dateFR() {
 			float: left;
 			width: 10%;
 			height: 10%;
-			margin: 0px 0px 0px 0px;
+			margin: 0px;
 		}
 
 	</style>
@@ -114,8 +109,9 @@ function dateFR() {
 			<div class="date">
 				<p><?php echo dateFR(); ?></p>
 			</div>
+			
 			<p><?php echo $_SESSION['prenom']." ".$_SESSION['nom'] ?></p>
-			<h1>COURRIER ARRIVÉE</h1>
+			<h1>COURRIER DEPART</h1>
 			<hr>
 		</div>
 		
@@ -133,16 +129,16 @@ function dateFR() {
 	AND destinataire.id_service = service_destinataire.id_serviceD
 	AND expediteur.id_service = service_expediteur.id_serviceE
 	AND date_courrier = "'.$date.'"
-	AND type.nom_type = "Entrant"
+	AND type.nom_type = "Sortant"
 	GROUP BY id_courrier';
 	$reponse = $bdd->query($requete);
 	?>
 	<div class="corp">
 		<table>
 			<tr>
-				<th>Expediteur</th>
-				<th>Objet</th>
 				<th>Destinataire</th>
+				<th>Objet</th>
+				<th>Expediteur</th>
 				<th>observation</th>
 			</tr>
 			<?php
@@ -150,9 +146,9 @@ function dateFR() {
 			{
 			?>
 				<tr>
-					<td><?php echo $ligne['nom_expediteur']." (".$ligne['serviceE'].")"; ?></td>
-					<td><?php echo $ligne['objet_courrier']; ?></td>
 					<td><?php echo $ligne['nom_destinataire']." (".$ligne['serviceD'].")"; ?></td>
+					<td><?php echo $ligne['objet_courrier']; ?></td>
+					<td><?php echo $ligne['nom_expediteur']." (".$ligne['serviceE'].")"; ?></td>
 					<td><?php echo $ligne['observation']; ?></td>
 				</tr>
 			<?php
@@ -163,6 +159,6 @@ function dateFR() {
 	<div class="footer">
 
 	</div>
-	
 </body>
 </html>
+

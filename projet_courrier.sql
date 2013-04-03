@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Mar 26 Mars 2013 à 10:41
+-- Généré le : Mer 03 Avril 2013 à 15:24
 -- Version du serveur: 5.5.29
 -- Version de PHP: 5.3.10-1ubuntu3.6
 
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `courrier` (
   KEY `id_type` (`id_type`),
   KEY `id_expediteur` (`id_expediteur`),
   KEY `id_destinataire` (`id_destinataire`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Contenu de la table `courrier`
@@ -73,7 +73,8 @@ INSERT INTO `courrier` (`id_courrier`, `objet_courrier`, `date_courrier`, `obser
 (6, 'Plop', '2013-03-12', 'ça pique', 0, 1, '', 2, 6, 6),
 (7, 'Plop', '2013-03-06', 'ça pique', 0, 1, '', 1, 4, 7),
 (8, 'Plop', '2013-03-19', 'salut', 0, 1, '', 1, 5, 8),
-(9, 'hgfd', '2013-03-19', '', 0, 1, '', 1, 5, 9);
+(9, 'hgfd', '2013-03-19', '', 0, 1, '', 1, 5, 9),
+(10, 'hgfd', '2013-04-02', 'ça pique', 0, 1, '', 1, 6, 3);
 
 -- --------------------------------------------------------
 
@@ -138,21 +139,24 @@ INSERT INTO `expediteur` (`id_expediteur`, `nom_expediteur`, `id_service`) VALUE
 
 CREATE TABLE IF NOT EXISTS `histo_courrier` (
   `id_courrier` int(11) NOT NULL,
-  `login_utilisateur` varchar(50) NOT NULL
+  `login_utilisateur` varchar(50) NOT NULL,
+  `date_modif` date NOT NULL,
+  `objet_modif` varchar(80) NOT NULL,
+  `observation_modif` varchar(100) NOT NULL,
+  `id_nature_modif` int(11) NOT NULL,
+  `id_expediteur_modif` int(11) NOT NULL,
+  `id_destinataire_modif` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Contenu de la table `histo_courrier`
 --
 
-INSERT INTO `histo_courrier` (`id_courrier`, `login_utilisateur`) VALUES
-(2, ''),
-(3, ''),
-(1, 'bart'),
-(4, 'bart'),
-(7, 'bart'),
-(3, 'admin'),
-(1, 'admin');
+INSERT INTO `histo_courrier` (`id_courrier`, `login_utilisateur`, `date_modif`, `objet_modif`, `observation_modif`, `id_nature_modif`, `id_expediteur_modif`, `id_destinataire_modif`) VALUES
+(1, 'admin', '2013-03-28', '', '', 0, 0, 0),
+(1, 'bart', '2013-03-28', '', '', 0, 0, 0),
+(3, 'admin', '2013-04-03', '', '', 0, 0, 0),
+(3, 'admin', '2013-04-03', '', '', 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -199,7 +203,7 @@ INSERT INTO `service_destinataire` (`id_serviceD`, `nom_serviceD`, `active`) VAL
 (2, 'UEPP', 1),
 (3, 'SATES', 1),
 (4, 'SESSAD', 1),
-(5, 'INFORMATIQUE', 1),
+(5, 'INFORMATIQUE', 0),
 (6, 'EME', 1);
 
 -- --------------------------------------------------------
@@ -224,7 +228,7 @@ INSERT INTO `service_expediteur` (`id_serviceE`, `nom_serviceE`, `active`) VALUE
 (2, 'UEPP', 1),
 (3, 'SATES', 1),
 (4, 'SESSAD', 1),
-(5, 'INFORMATIQUE', 1),
+(5, 'INFORMATIQUE', 0),
 (6, 'EME', 1);
 
 -- --------------------------------------------------------
@@ -269,7 +273,7 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
 
 INSERT INTO `utilisateur` (`id_utilisateur`, `nom_utilisateur`, `prenom_utilisateur`, `login_utilisateur`, `mdp_utilisateur`, `droit_utilisateur`) VALUES
 (1, 'Simpson', 'Homer', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
-(2, 'Simpson', 'Bart', 'bart', '7cad999ac7b4a5e118d8e8970f30f5f3', 'user');
+(2, 'Simpson', 'Bart', 'bart', 'f54146a3fc82ab17e5265695b23f646b', 'user');
 
 --
 -- Contraintes pour les tables exportées

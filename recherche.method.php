@@ -78,9 +78,7 @@
 			<th>Destinataire</th>
 			<th>Statut</th>
 			<th>
-				<a href="#" class="imprimRecherche">Imprimer</a>
-
-				
+				<a href="#" class="imprimRecherche">Imprimer</a>				
 			</th>
 		</tr>
 		<?php
@@ -88,7 +86,7 @@
 		{
 		?>
 		<tr>
-			<td><?php echo $ligne['id_courrier'] ?></td>
+			<td><?php echo $ligne['id_courrier']; ?></td>
 			<td>
 			<?php
 			if(empty($ligne['num_envoi'])) {
@@ -99,14 +97,14 @@
 			}
 			?>
 			</td>
-			<td><?php echo $ligne['objet_courrier'] ?></td>
-			<td><?php echo $ligne['date_courrier'] ?></td>
-			<td><?php echo $ligne['observation'] ?></td>
-			<td><?php echo $ligne['nom_nature'] ?></td>
-			<td><?php echo $ligne['nom_expediteur']." (".$ligne['serviceE'].")" ?></td>
-			<td><?php echo $ligne['nom_destinataire']." (".$ligne['serviceD'].")" ?></td>
+			<td><?php echo $ligne['objet_courrier']; ?></td>
+			<td><?php echo $ligne['date_courrier']; ?></td>
+			<td><?php echo $ligne['observation']; ?></td>
+			<td><?php echo $ligne['nom_nature']; ?></td>
+			<td><?php echo $ligne['nom_expediteur']." (".$ligne['serviceE'].")"; ?></td>
+			<td><?php echo $ligne['nom_destinataire']." (".$ligne['serviceD'].")"; ?></td>
 			<td><?php echo $ligne['nom_type']; ?></td>
-			<td><a href="#" onClick="window.open('modifier.php?id=<?php echo $ligne['id_courrier'] ?>','Modification','toolbar=0, location=0, directories=0, status=0, scrollbars=0, resizable=0, copyhistory=0, menuBar=0, width=600, height=400');return(false)">Modifier</a></td>
+			<td><a href="#" onClick="window.open('modifier.php?id=<?php echo $ligne['id_courrier']; ?>','Modification','toolbar=0, location=0, directories=0, status=0, scrollbars=0, resizable=0, copyhistory=0, menuBar=0, width=600, height=400');return(false)">Modifier</a></td>
 		</tr>
 		<?php
 		}

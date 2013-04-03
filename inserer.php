@@ -1,5 +1,6 @@
 <?php
 session_start();
+$_SESSION['url'] = basename($_SERVER['PHP_SELF']);
 if($_SESSION['auth'] != "yes") {
 	echo "<script>alert('Vous n'avez pas accès à cette page');</script>";
 	header('Location:index.php');

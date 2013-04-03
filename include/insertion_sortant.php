@@ -78,4 +78,5 @@
 			</td>
 		</tr>
 	</table>
+	<a href="print_depart.php">Imprimer les courriers départ du jour</a>
 </form>

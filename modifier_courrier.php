@@ -19,7 +19,7 @@ if(isset($_POST)) {
 		catch(PDOException $e) {
 			$e->getMessage();
 		}
-		echo "<p align=\"center\">Le courrier a été modifié</p>";
+		echo "<script> alert(\"Le type a été modifié\"); window.close(); </script>";
 
 		
 	}
