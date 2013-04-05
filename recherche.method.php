@@ -77,6 +77,7 @@
 			<th>Expediteur</th>
 			<th>Destinataire</th>
 			<th>Statut</th>
+			<th>Accusé</th>
 			<th>
 				<a href="#" class="imprimRecherche">Imprimer</a>				
 			</th>
@@ -104,6 +105,16 @@
 			<td><?php echo $ligne['nom_expediteur']." (".$ligne['serviceE'].")"; ?></td>
 			<td><?php echo $ligne['nom_destinataire']." (".$ligne['serviceD'].")"; ?></td>
 			<td><?php echo $ligne['nom_type']; ?></td>
+			<td>
+				<?php 
+				if($ligne['id_accuse_de_reception'] != '0') {
+					echo "<a href=\"#\" onClick=\"window.open('include/accuse/view_accuse.php?id=".$ligne['id_accuse_de_reception']."','Accusé de réception','toolbar=0, location=0, directories=0, status=0, scrollbars=0, resizable=0, copyhistory=0, menuBar=0, width=300, height=200');return(false)\">Oui</a>";
+				}
+				else {
+					echo "Non";
+				}
+				?>
+			</td>
 			<td><a href="#" onClick="window.open('modifier.php?id=<?php echo $ligne['id_courrier']; ?>','Modification','toolbar=0, location=0, directories=0, status=0, scrollbars=0, resizable=0, copyhistory=0, menuBar=0, width=600, height=400');return(false)">Modifier</a></td>
 		</tr>
 		<?php

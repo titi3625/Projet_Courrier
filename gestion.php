@@ -55,6 +55,12 @@ if($_SESSION['auth'] != "yes" || $_SESSION['droit'] != "admin") {
 							break;
 					}
 				}
+
+				if(isset($_GET['num'])) {
+					echo "<div class=\"confirmInsert\">";
+					echo "L'element' n°".$_GET['num']." a été ajouté";
+					echo "</div>";
+				}
 				?>
 			</fieldset>
 		</div>

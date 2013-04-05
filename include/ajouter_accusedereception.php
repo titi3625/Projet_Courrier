@@ -1,23 +1,26 @@
 <?php
-require('include/bdd.php');
+require('bdd.php');
 
 if(isset($_POST)) {
 	extract($_POST);
-	if((isset($courrier) && !empty($courrier)) && (isset($date) && !empty($date)) && (isset($num) && !empty($num))) {
-		$courrier = addslashes(strip_tags($courrier));
+	if((isset($numCourrier) && !empty($numCourrier)) && (isset($date) && !empty($date)) && (isset($numAccuse) && !empty($numAccuse))) {
+		$numCourrier = addslashes(strip_tags($numCourrier));
 		$date = addslashes(strip_tags($date));
-		$num = addslashes(strip_tags($num));
+		$numAccuse = addslashes(strip_tags($numAccuse));
 
-		$requete = "INSERT INTO accuse_de_reception VALUES('', '".$num."', '".$date."', '".$courrier."')";
+		$requete = "INSERT INTO accuse_de_reception VALUES('', '".$numAccuse."', '".$date."', '".$numCourrier."')";
+
 		$reponse = $bdd->exec($requete);
-
-		if($reponse > 0) {
+		$lastIdAc = $bdd->lastInsertId();
+		$requete2 = "UPDATE courrier SET id_accuse_de_reception = '".$lastIdAc."' WHERE num_envoi = '".$numCourrier."'";
+		$reponse2 = $bdd->exec($requete2);
+		if($reponse > 0 && $reponse2 > 0) {
 			echo "Accusé de reception ajouté";
 		}
 		else {
 			echo "Problème de base de données";
 		}
-		header("refresh:2;url=inserer.php?page=3");
+		header("Location:../inserer.php?page=3&numA=".$lastIdAc);
 	}
 }
 else {

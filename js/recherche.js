@@ -56,6 +56,7 @@ $(function() {
 		$(':input', '.divRecherche').not(':button, :submit, :reset, :hidden').val('');
 
 		// coche le premier bouton radio par defaut
+		$('#radio').find(':radio').attr('checked', false);
 		$('#lesdeux').attr('checked', true);
 
 		// efface les resultats de recherche

@@ -64,6 +64,11 @@ if($_SESSION['auth'] != "yes") {
 					echo "Le courrier n°".$_GET['num']." a été ajouté";
 					echo "</div>";
 				}
+				elseif (isset($_GET['numA'])) {
+					echo "<div class=\"confirmInsert\">";
+					echo "L'accusé n°".$_GET['numA']." a été ajouté";
+					echo "</div>";
+				}
 				?>
 			</fieldset>
 		</div>
@@ -80,5 +85,28 @@ if($_SESSION['auth'] != "yes") {
 	<script src="js/interface.js"></script>
 	<script src="js/formulaire_insertion.js"></script>
 
+	<script>
+		$(function() {
+			var availableTags = [
+				<?php
+				require('include/bdd.php');
+				$requete = "SELECT * FROM courrier";
+				$reponse = $bdd->query($requete);
+				
+				while($ligne = $reponse->fetch())
+				{
+					if($ligne['num_envoi'] != "") {
+						echo "'".$ligne['num_envoi']."',";
+					}
+					
+				}
+				?>
+			];
+			
+			$('#tags').autocomplete({
+				source: availableTags
+			});
+		});
+	</script>
 </body>
 </html>

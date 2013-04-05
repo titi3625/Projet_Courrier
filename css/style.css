@@ -271,6 +271,7 @@ dl ul {
 }
 
 .confirmInsert {
+	margin-top: 10px;
 	font-size: 20px;
 	color: green;
 }
@@ -316,12 +317,18 @@ hr {
 .resultat_modif table {
 	border-collapse: collapse;
 	margin-top: 15px;
+	width: 100%;
 }
 
 .resultat_modif table tr td, .resultat_modif table tr th {
-	//height: 15px;
-	//width: auto;
+	height: 15px;
+	width: auto;
 	text-align: center;
+	padding: 4px;
 	border: 1px solid #6E6D71;
 	border-collapse: collapse;
+}
+
+#date_modif {
+	width: 200px;
 }

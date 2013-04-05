@@ -19,7 +19,7 @@
 				<ul class="sousMenu1">
 					<li><a href="inserer.php?page=1">Courrier arrivé</a></li>
 					<li><a href="inserer.php?page=2">Courrier départ</a></li>
-					<li><a href="inserer.php?page=3">Accuse de reception</a></li>
+					<li><a href="inserer.php?page=3">Accusé de réception</a></li>
 				</ul>
 			</dl>
 			<div class="separateur"></div>
@@ -54,7 +54,7 @@
 				<ul class="sousMenu1">
 					<li><a href="inserer.php?page=1">Courrier arrivé</a></li>
 					<li><a href="inserer.php?page=2">Courrier départ</a></li>
-					<li><a href="inserer.php?page=3">Accuse de reception</a></li>
+					<li><a href="inserer.php?page=3">Accusé de réception</a></li>
 				</ul>
 			</dl>
 			<div class="separateur"></div>
@@ -89,7 +89,7 @@
 				<ul class="sousMenu1">
 					<li><a href="inserer.php?page=1">Courrier arrivé</a></li>
 					<li><a href="inserer.php?page=2">Courrier départ</a></li>
-					<li><a href="inserer.php?page=3">Accuse de reception</a></li>
+					<li><a href="inserer.php?page=3">Accusé de réception</a></li>
 				</ul>
 			</dl>
 			<div class="separateur"></div>
@@ -124,7 +124,7 @@
 				<ul class="sousMenu1">
 					<li><a href="inserer.php?page=1">Courrier arrivé</a></li>
 					<li><a href="inserer.php?page=2">Courrier départ</a></li>
-					<li><a href="inserer.php?page=3">Accuse de reception</a></li>
+					<li><a href="inserer.php?page=3">Accusé de réception</a></li>
 				</ul>
 			</dl>
 			<div class="separateur"></div>
@@ -159,7 +159,7 @@
 				<ul class="sousMenu1">
 					<li><a href="inserer.php?page=1">Courrier arrivé</a></li>
 					<li><a href="inserer.php?page=2">Courrier départ</a></li>
-					<li><a href="inserer.php?page=3">Accuse de reception</a></li>
+					<li><a href="inserer.php?page=3">Accusé de réception</a></li>
 				</ul>
 			</dl>
 			<div class="separateur"></div>
