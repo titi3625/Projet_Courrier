@@ -59,6 +59,7 @@ if($_SESSION['auth'] != "yes") {
 					}
 				}
 
+				// message de confirmation d'ajout pour les courrier et les accusés de réceptions
 				if(isset($_GET['num'])) {
 					echo "<div class=\"confirmInsert\">";
 					echo "Le courrier n°".$_GET['num']." a été ajouté";
@@ -86,9 +87,10 @@ if($_SESSION['auth'] != "yes") {
 	<script src="js/formulaire_insertion.js"></script>
 
 	<script>
-		$(function() {
+		$(function() { // fonction d'autocomplétion pour les num d'envoi des courriers lors de l'insertion d'un accuse
 			var availableTags = [
 				<?php
+				// rempli le tableau javascript avec la bdd (table courrier)
 				require('include/bdd.php');
 				$requete = "SELECT * FROM courrier";
 				$reponse = $bdd->query($requete);
@@ -103,7 +105,7 @@ if($_SESSION['auth'] != "yes") {
 				?>
 			];
 			
-			$('#tags').autocomplete({
+			$('#tags').autocomplete({ // fonction JqueryUI pour l'autocomplétion
 				source: availableTags
 			});
 		});

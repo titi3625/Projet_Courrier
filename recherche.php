@@ -1,4 +1,6 @@
 <?php
+// Page du formulaire de recherche
+
 session_start();
 if($_SESSION['auth'] != "yes") {
 	echo "<script> alert('Vous n'avez pas accès à cette page'); </script>";

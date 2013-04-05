@@ -12,10 +12,11 @@ session_start();
 <body>
 	<div class="header">
 		<?php
-		include_once('include/menu.php');
+		require('include/menu.php');
 		?>
 		<div class="user">
 			<?php
+			// On verifie si l'utilisateur est connecté pour afficher ses infos
 			if(isset($_SESSION['auth']) && $_SESSION['auth'] == 'yes') {
 				echo "<p>".$_SESSION['prenom'] . " " . $_SESSION['nom']."</p>";
 				echo "<a href=\"include/deconnexion.php\">Se déconnecter</a>";
@@ -37,7 +38,7 @@ session_start();
 		
 
 		<?php
-		if(!isset($_SESSION['auth']) || $_SESSION['auth'] == 'no') {
+		if(!isset($_SESSION['auth']) || $_SESSION['auth'] == 'no') { // si l'utilisateur n'est pas connecté on affiche le formulaire de connexion
 		?>
 			<form action="index.php" method="post">
 				<p align="center">Vous devez vous connecter pour accéder à l'interface</p>
@@ -58,15 +59,16 @@ session_start();
 			</form>
 
 			<?php
-			if(isset($_POST['login']) && isset($_POST['mdp'])) {
+			if(isset($_POST['login']) && isset($_POST['mdp'])) { // on verifie la présence des variables
 				$login = @$_POST['login'];
 				$mdp = md5(@$_POST['mdp']);
 	
-				if($login == null || $mdp == null) {
+				if($login == null || $mdp == null) { // on verifie si le formulaire n'a pas été mal rempli
 					echo '<p align="center">Tout les champs doivent être remplis</p>';
 				}
 				else {
-					include_once('include/bdd.php');
+					// on effectue la requete et on met les infos de l'utilisateur dans des variables sessions
+					require('include/bdd.php');
 					$req = $bdd->query("SELECT * FROM utilisateur WHERE login_utilisateur = '$login' AND mdp_utilisateur = '$mdp'");
 					if($verif = $req->fetch()) {
 						$_SESSION['droit']  = $verif['droit_utilisateur'];

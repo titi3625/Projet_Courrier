@@ -2,7 +2,7 @@
 
 <h2>Rechercher une modification</h2>
 <input type="text" id="date_modif" class="datepicker" placeholder="Par date de modification">
- et/ou 
+ et / ou 
 <select name="auteur_modif" id="auteur_modif">
 	<?php
 	$requete = "SELECT * FROM utilisateur";
@@ -18,6 +18,7 @@
 </select>
 <input type="submit" name="valider" id="submit_modif" value="Rechercher">
 <input type="button" id="reset" value="Effacer">
+<input type="button" name="print" id="printModif" value="Imprimer">
 
 <div class="resultat_modif">
 	

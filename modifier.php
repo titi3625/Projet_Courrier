@@ -74,7 +74,7 @@ $utilisateur = $_SESSION['login'];
 						
 						while($ligne2 = $reponse->fetch())
 						{
-							if($ligne['nom_nature'] == $ligne2['nom_nature']) {
+							if($ligne['nom_nature'] == $ligne2['nom_nature']) { // si la nature correspond la listbox sera sur la bonne valeur
 								echo "<option value=".$ligne2['id_nature']." selected>".$ligne2['nom_nature']."</option>";
 							}
 							else {

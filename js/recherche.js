@@ -44,6 +44,7 @@ $(function() {
 				date_fin:""+d2+"",
 				sens:""+sens+""
 			}, function(data) {
+				// on recupere l'affichage de recherche.method.php pour le mettre dans la div .resultat
 				$('.resultat').html(data).show();
 			});
 		}

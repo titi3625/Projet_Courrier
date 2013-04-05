@@ -76,7 +76,7 @@ if($_SESSION['auth'] != "yes" || $_SESSION['droit'] != "admin") {
 	<script src="js/jquery-ui-1.10.1.custom.min.js"></script>
 	<script src="js/interface.js"></script>
 	<script src="js/formulaire_insertion.js"></script>
-	<script src="js/recherche_accuse.js"></script>
+	<script src="js/recherche_modif.js"></script>
 
 </body>
 </html>

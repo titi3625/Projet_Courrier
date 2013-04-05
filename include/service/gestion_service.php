@@ -1,3 +1,4 @@
+<!-- Page de gestion des service (gestion.php) -->
 <legend>Gestion des services</legend>
 <table id="tableauType">
 	<tr>

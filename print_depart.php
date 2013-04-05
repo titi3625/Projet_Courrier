@@ -1,4 +1,6 @@
 <?php
+// Page qui affiche les courriers departs du jour dans un format imprimable
+
 session_start();
 include('include/bdd.php');
 $date = date('d-m-Y');

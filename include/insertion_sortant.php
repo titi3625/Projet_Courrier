@@ -1,3 +1,4 @@
+<!-- Page d'insertion des courrier sortant ou depart (inserer.php -->)
 <legend>Ajouter un courrier départ</legend>
 <form action="ajouter_courrier.php" method="post" id="insererSortant">
 	<table>
@@ -19,7 +20,7 @@
 					
 					while($ligne = $reponse->fetch())
 					{
-						if($ligne['active'] == '1') {
+						if($ligne['active'] == '1') { // si le service est actif on le met dans la liste deroulante
 							echo "<option value=".$ligne['id_serviceE'].">".$ligne['nom_serviceE']."</option>";
 						}
 						

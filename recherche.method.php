@@ -1,4 +1,6 @@
 <!doctype html>
+
+<!-- Page qui récupere les champs du formulaire de recherche, qui execute les requetes et retourne les resultats sous la forme d'un tableau -->
 <html>
 <head>
 	<meta charset="UTF-8">
@@ -18,7 +20,7 @@
 	// inclusion du fichier de connexion à la bdd
 	include('include/bdd.php');
 	
-	// recuperation des variables depuis le formulaire de recherche en ajax
+	// recuperation des variables depuis le formulaire de recherche en ajax avec recherche.js
 	$num = addslashes(strip_tags($_POST['num']));
 	$objet = addslashes(strip_tags($_POST['objet']));
 	$expe = addslashes(strip_tags($_POST['expediteur']));
@@ -38,6 +40,7 @@
 		AND destinataire.id_service = service_destinataire.id_serviceD
 		AND expediteur.id_service = service_expediteur.id_serviceE';
 
+	// on concatene la variable qui contient la requete selon les critères renseigné
 	if($num != null) {
 		$sql .= ' AND num_envoi = "'.$num.'"';
 	}

@@ -3,7 +3,7 @@ include('../bdd.php');
 
 // on verifie que les variables du formulaire sont bien arrivé
 if(isset($_POST)) {
-	addslashes($_POST);
+	//addslashes($_POST);
 	extract($_POST);
 	if(isset($nom) && !empty($nom) && isset($action) && !empty($action)) {
 		

@@ -1,4 +1,6 @@
 <?php
+// Page access denied
+
 session_start();
 ?>
 <!doctype html>

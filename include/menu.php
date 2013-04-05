@@ -1,3 +1,4 @@
+<!-- Page qui contient le menu dynamique qui change en fonction de la page courante -->
 <div class="menu">
 
 	<?php

@@ -1,6 +1,8 @@
 <?php
-// activation des variables de sessions
+// Page qui affiche les courriers arrivés du jour dans un format imprimable
 
+
+// activation des variables de sessions
 session_start();
 
 include('include/bdd.php');

@@ -1,3 +1,4 @@
+<!-- Page d'insertion des courrier entrant ou arrive (inserer.php -->)
 <legend>Ajouter un courrier arrivé</legend>
 <form action="ajouter_courrier.php" method="post" id="insererEntrant">
 	<table>
@@ -73,7 +74,7 @@
 		</tr>
 		<tr>
 			<td colspan="3" id="trBouton">
-				<input type="hidden" name="type" value="1">
+				<input type="hidden" name="type" value="1"> Champs cache pour revenir sur la bonne page apres les requetes sur ajouter_courrier.php
 				<input type="submit" name="valider" value="Valider">
 				<input type="reset" name="reset" value="Reset">
 			</td>

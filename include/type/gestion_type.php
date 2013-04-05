@@ -1,3 +1,4 @@
+<!-- Page de gestion des type de courrier (gestion.php) -->
 <legend>Gestion des types de courrier</legend>
 <table id="tableauType">
 	<tr>

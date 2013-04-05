@@ -1,3 +1,4 @@
+<!-- Page de gestion des utilisateurs et des droits (gestion.php) -->
 <legend>Gestion des utilisateurs et des droits</legend>
 
 <table id="tableauType">

@@ -1,4 +1,5 @@
 <?php
+// page de la popup d'affichage de l'accuse d'un courrier
 require('../bdd.php');
 if(isset($_GET['id']) && !empty($_GET['id'])) {
 	extract($_GET);
@@ -51,7 +52,7 @@ if(isset($_GET['id']) && !empty($_GET['id'])) {
 				<td><?php echo $ligne['date_accuse']; ?></td>
 			</tr>
 			<tr>
-				<td>Num. de l'accusé de réception</td>
+				<td>Num. de l'accusé de réception : </td>
 				<td><?php echo $ligne['num_accuse']; ?></td>
 			</tr>
 			<tr>

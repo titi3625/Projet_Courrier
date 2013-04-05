@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
+-- version 3.5.1
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le : Mer 03 Avril 2013 à 15:24
--- Version du serveur: 5.5.29
--- Version de PHP: 5.3.10-1ubuntu3.6
+-- Généré le: Ven 05 Avril 2013 à 12:58
+-- Version du serveur: 5.5.24-log
+-- Version de PHP: 5.4.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -30,10 +30,15 @@ CREATE TABLE IF NOT EXISTS `accuse_de_reception` (
   `id_accuse` int(11) NOT NULL AUTO_INCREMENT,
   `num_accuse` varchar(50) NOT NULL,
   `date_accuse` date NOT NULL,
-  `id_courrier` int(11) NOT NULL,
-  PRIMARY KEY (`id_accuse`),
-  KEY `id_courrier` (`id_courrier`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+  PRIMARY KEY (`id_accuse`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+
+--
+-- Contenu de la table `accuse_de_reception`
+--
+
+INSERT INTO `accuse_de_reception` (`id_accuse`, `num_accuse`, `date_accuse`) VALUES
+(10, '123456', '2013-04-05');
 
 -- --------------------------------------------------------
 
@@ -58,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `courrier` (
   KEY `id_type` (`id_type`),
   KEY `id_expediteur` (`id_expediteur`),
   KEY `id_destinataire` (`id_destinataire`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Contenu de la table `courrier`
@@ -70,11 +75,14 @@ INSERT INTO `courrier` (`id_courrier`, `objet_courrier`, `date_courrier`, `obser
 (3, 'sdfghjk', '2013-03-13', 'dsdfgsdfgsdf', 0, 1, 'ieuhgfvdchgfv', 1, 3, 3),
 (4, 'Plop', '2013-03-05', 'ça pique', 0, 2, 'dfgsdfgsdgs', 1, 4, 4),
 (5, 'jhgfdcs', '2013-03-06', 'salut', 0, 1, '', 1, 5, 5),
-(6, 'Plop', '2013-03-12', 'ça pique', 0, 1, '', 2, 6, 6),
+(6, 'Plop', '2013-03-12', 'ça pique tres tres fort', 0, 1, '', 2, 6, 6),
 (7, 'Plop', '2013-03-06', 'ça pique', 0, 1, '', 1, 4, 7),
 (8, 'Plop', '2013-03-19', 'salut', 0, 1, '', 1, 5, 8),
 (9, 'hgfd', '2013-03-19', '', 0, 1, '', 1, 5, 9),
-(10, 'hgfd', '2013-04-02', 'ça pique', 0, 1, '', 1, 6, 3);
+(10, 'hgfd', '2013-04-02', 'ça pique', 0, 1, '', 1, 6, 3),
+(11, 'kjh', '2013-04-04', 'Attention', 0, 1, '', 1, 2, 2),
+(12, 'Chicken1', '2013-04-04', 'super Urgent', 10, 2, 'x5vwx3vw4fv', 2, 2, 10),
+(13, 'plop', '2013-04-04', 'On est ses amis', 0, 1, '', 1, 7, 11);
 
 -- --------------------------------------------------------
 
@@ -88,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `destinataire` (
   `id_service` int(11) NOT NULL,
   PRIMARY KEY (`id_destinataire`),
   KEY `service` (`id_service`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
 -- Contenu de la table `destinataire`
@@ -103,7 +111,9 @@ INSERT INTO `destinataire` (`id_destinataire`, `nom_destinataire`, `id_service`)
 (6, 'Maurice', 6),
 (7, 'Simpson', 1),
 (8, 'Maurice', 1),
-(9, 'Casimir', 1);
+(9, 'Casimir', 1),
+(10, 'Resto asiat', 1),
+(11, 'Tibo', 5);
 
 -- --------------------------------------------------------
 
@@ -117,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `expediteur` (
   `id_service` int(11) NOT NULL,
   PRIMARY KEY (`id_expediteur`),
   KEY `service` (`id_service`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Contenu de la table `expediteur`
@@ -129,7 +139,8 @@ INSERT INTO `expediteur` (`id_expediteur`, `nom_expediteur`, `id_service`) VALUE
 (3, 'bart', 5),
 (4, 'Roger', 1),
 (5, 'Oui oui', 1),
-(6, 'bart', 3);
+(6, 'bart', 3),
+(7, 'plopexpe', 1);
 
 -- --------------------------------------------------------
 
@@ -138,25 +149,28 @@ INSERT INTO `expediteur` (`id_expediteur`, `nom_expediteur`, `id_service`) VALUE
 --
 
 CREATE TABLE IF NOT EXISTS `histo_courrier` (
+  `id_modif` int(11) NOT NULL AUTO_INCREMENT,
   `id_courrier` int(11) NOT NULL,
   `login_utilisateur` varchar(50) NOT NULL,
   `date_modif` date NOT NULL,
   `objet_modif` varchar(80) NOT NULL,
   `observation_modif` varchar(100) NOT NULL,
   `id_nature_modif` int(11) NOT NULL,
-  `id_expediteur_modif` int(11) NOT NULL,
-  `id_destinataire_modif` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `nom_expediteur_modif` varchar(50) NOT NULL,
+  `service_expediteur_modif` varchar(50) NOT NULL,
+  `nom_destinataire_modif` varchar(50) NOT NULL,
+  `service_destinataire_modif` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_modif`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Contenu de la table `histo_courrier`
 --
 
-INSERT INTO `histo_courrier` (`id_courrier`, `login_utilisateur`, `date_modif`, `objet_modif`, `observation_modif`, `id_nature_modif`, `id_expediteur_modif`, `id_destinataire_modif`) VALUES
-(1, 'admin', '2013-03-28', '', '', 0, 0, 0),
-(1, 'bart', '2013-03-28', '', '', 0, 0, 0),
-(3, 'admin', '2013-04-03', '', '', 0, 0, 0),
-(3, 'admin', '2013-04-03', '', '', 0, 0, 0);
+INSERT INTO `histo_courrier` (`id_modif`, `id_courrier`, `login_utilisateur`, `date_modif`, `objet_modif`, `observation_modif`, `id_nature_modif`, `nom_expediteur_modif`, `service_expediteur_modif`, `nom_destinataire_modif`, `service_destinataire_modif`) VALUES
+(5, 12, 'admin', '2013-04-04', 'Chicken', 'urgent', 2, 'Moi', '5', 'Resto asiat', '1'),
+(6, 12, 'admin', '2013-04-04', 'Chicken1', 'super Urgent', 2, 'Moi', '5', 'Resto asiat', '1'),
+(7, 6, 'admin', '2013-04-04', 'Plop', 'ça pique tres tres fort', 1, 'bart', '3', 'Maurice', '6');
 
 -- --------------------------------------------------------
 
@@ -203,7 +217,7 @@ INSERT INTO `service_destinataire` (`id_serviceD`, `nom_serviceD`, `active`) VAL
 (2, 'UEPP', 1),
 (3, 'SATES', 1),
 (4, 'SESSAD', 1),
-(5, 'INFORMATIQUE', 0),
+(5, 'INFORMATIQUE', 1),
 (6, 'EME', 1);
 
 -- --------------------------------------------------------
@@ -228,7 +242,7 @@ INSERT INTO `service_expediteur` (`id_serviceE`, `nom_serviceE`, `active`) VALUE
 (2, 'UEPP', 1),
 (3, 'SATES', 1),
 (4, 'SESSAD', 1),
-(5, 'INFORMATIQUE', 0),
+(5, 'INFORMATIQUE', 1),
 (6, 'EME', 1);
 
 -- --------------------------------------------------------

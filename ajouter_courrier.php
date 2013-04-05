@@ -45,6 +45,8 @@ else {
 		$reponse3 = $bdd->exec($sql3);
 		$lastIdCourrier = $bdd->lastInsertId();
 		header("Location: inserer.php?page=".$type."&num=".$lastIdCourrier);
+		// on renvoi a la page d'insertion du courrier avec le num du courrier qu'on vient d'inserer
+		// pour le message de confirmation (voir inserer.php)
 	}
 	else {
 		echo "Erreur de base de données, veuillez réessayer";

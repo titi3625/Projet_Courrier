@@ -1,3 +1,4 @@
+<!-- Page d'insertion des accuses de reception (inserer.php) -->
 <legend>Ajouter un accusé de réception</legend>
 <form action="include/ajouter_accusedereception.php" method="post">
 	<table>

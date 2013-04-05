@@ -1,4 +1,6 @@
 <?php
+// page de deconnexion
+
 session_start();
 
 // suppression des variables session en cours

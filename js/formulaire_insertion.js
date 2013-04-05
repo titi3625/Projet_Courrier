@@ -11,13 +11,6 @@ $(function() {
 		}
 	});
 
-
-
-	//========= validation du formulaire ============//
-	$('#valider').on('click', function() {
-		
-	});
-
 	// fonction de reset du formulaire
 	$('#reset').on("click", function() {
 		$(':input', '.inserer')
