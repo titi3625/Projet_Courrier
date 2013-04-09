@@ -1,4 +1,4 @@
-<!-- Page d'insertion des courrier sortant ou depart (inserer.php -->)
+<!-- Page d'insertion des courrier sortant ou depart (inserer.php) -->
 <legend>Ajouter un courrier départ</legend>
 <form action="ajouter_courrier.php" method="post" id="insererSortant">
 	<table>

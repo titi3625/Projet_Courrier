@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 05 Avril 2013 à 12:58
+-- Généré le: Mar 09 Avril 2013 à 15:29
 -- Version du serveur: 5.5.24-log
 -- Version de PHP: 5.4.3
 
